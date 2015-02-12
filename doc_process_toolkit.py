@@ -67,6 +67,13 @@ def stop_tika_server(port=9998):
         print("Server not running on port %s" % port)
 
 
+def save_document(document, export_path):
+    """ saves the document, maybe add a pip instead of reading with python """
+
+    with open(export_path, 'w') as f:
+        f.write(document.stdout.read())
+
+
 def convert_documents(doc_paths, port=9998):
     """ Converts a document """
 
@@ -78,7 +85,7 @@ def convert_documents(doc_paths, port=9998):
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 shell=True)
-            yield document.stdout.read()
+            yield document, doc_path
 
 
 def get_doc_length(document):
@@ -93,6 +100,8 @@ if __name__ == '__main__':
     check_server()
     document_paths = glob.glob("test_docs/*/*.pdf")
     documents = convert_documents(document_paths)
-    for document in documents:
-        print(get_doc_length(document))
+    for document, doc_path in documents:
+        save_document(document, doc_path.replace(".pdf", ".txt"))
+        print("%s converted" % doc_path)
+
     stop_tika_server()

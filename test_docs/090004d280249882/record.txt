@@ -1,0 +1,1982 @@
+
+"Rosenthal, Amy" 
+<amy.rosenthal@urs.com> 
+
+11/06/2012 12:51 PM
+
+To ArcticAR <arcticar@urscorp.com>
+
+cc
+
+bcc
+
+Subject FW: Submittal - Draft G2G CAR
+
+ 
+ 
+From: Rosenthal, Amy 
+Sent: Friday, April 20, 2012 11:08 AM
+To: Candace Nachman (Candace.Nachman@noaa.gov); jolie.harrison@noaa.gov; 
+Michael.Payne@noaa.gov
+Cc: Isaacs, Jon; Bellion, Tara; Kluwe, Joan; Fuchs, Kim; ArcticAR
+Subject: Submittal - Draft G2G CAR
+ 
+Hi all –
+ 
+Attached is the Draft government‐to‐government comment analysis report for your review.  While we 
+do have a separate report for G2G comments, there is only one SOC that is new from the Public CAR that 
+you, BOEM, and NSB are currently working from – NEP 3.
+ 
+Please let me know if you have any questions.
+Thanks,
+Amy
+ 
+ 
+**** Please note my new email address:   amy.rosenthal@urs.com  ****
+ 
+Amy C. Rosenthal
+Environmental Planner
+URS Corporation
+ 
+503‐948‐7223 (direct phone)
+503‐222‐4292 (fax)
+ 
+
+This e-mail and any attachments contain URS Corporation confidential information that may be proprietary or privileged. If you 
+receive this message in error or are not the intended recipient, you should not retain, distribute, disclose or use any of this 
+information and you should destroy the e-mail and any attachments or copies.
+
+
+
+Effects of Oil and Gas 
+Activities in the Arctic Ocean 
+
+Draft  
+Government-to-Government  
+Comment Analysis Report  
+
+ 
+
+United States Department of Commerce 
+National Oceanic and Atmospheric Administration 
+National Marine Fisheries Service 
+Office of Protected Resources 
+
+April 20, 2012 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS i 
+Draft Government to Government Comment Analysis Report 
+
+TABLE OF CONTENTS 
+
+TABLE OF CONTENTS ............................................................................................................................ i 
+
+LIST OF TABLES ....................................................................................................................................... i 
+
+LIST OF FIGURES ..................................................................................................................................... i 
+
+LIST OF APPENDICES ............................................................................................................................. i 
+
+ACRONYMS AND ABBREVIATIONS ................................................................................................... ii 
+
+ 
+
+1.0 INTRODUCTION.......................................................................................................................... 1 
+
+2.0 BACKGROUND ............................................................................................................................ 1 
+
+3.0 THE ROLE OF CONSULTATION WITH INDIAN TRIBAL GOVERNMENTS ................ 1 
+
+4.0 ANALYSIS OF SUBMISSIONS .................................................................................................. 3 
+
+5.0 STATEMENTS OF CONCERN .................................................................................................. 7 
+
+ 
+
+APPENDIX 
+
+ 
+
+ 
+
+ 
+
+LIST OF TABLES 
+
+Table 1 Government to Government Meetings, Locations and Dates .................................... Page 2 
+
+Table 2 Issue Categories for DEIS Comments ....................................................................... Page 4 
+
+ 
+
+LIST OF FIGURES 
+
+Figure 1 Comments by Issue .................................................................................................... Page 6 
+
+ 
+
+LIST OF APPENDICES 
+
+Appendix A Submission and Comment Index 
+
+ 
+
+  
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS ii 
+Draft Government to Government Comment Analysis Report 
+
+ACRONYMS AND ABBREVIATIONS 
+
+AEWC Alaska Eskimo Whaling Commission 
+
+APA Administrative Procedure Act 
+
+BOEM Bureau of Ocean Energy Management 
+
+CAA Conflict Avoidance Agreement 
+
+CAR Comment Analysis Report 
+
+CASy Comment Analysis System database  
+
+DEIS Draft Environmental Impact Statement 
+
+ESA Endangered Species Act 
+
+IEA Important Ecological Area 
+
+IHA Incidental Harassment Authorization 
+
+ITAs Incidental Take Authorizations  
+
+ITRs Incidental Take Regulations 
+
+MMPA Marine Mammal Protection Act 
+
+NEPA National Environmental Policy Act 
+
+NMFS National Marine Fisheries Service 
+
+OCS Outer Continental Shelf 
+
+OCSLA Outer Continental Shelf Lands Act 
+
+PAM Passive Acoustic Monitoring 
+
+SOC Statement of Concern 
+
+TK Traditional Knowledge 
+
+USC United States Code 
+
+USGS U.S. Geological Survey 
+
+VLOS Very Large Oil Spill 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 1 
+Draft Government to Government Comment Analysis Report 
+
+1.0 INTRODUCTION 
+The National Oceanic and Atmospheric Administration’s National Marine Fisheries Service (NMFS) and 
+the U.S. Department of the Interior’s Bureau of Ocean Energy Management (BOEM) have prepared and 
+released a Draft Environmental Impact Statement (DEIS) that analyzes the effects of offshore geophysical 
+seismic surveys and exploratory drilling in the federal and state waters of the U.S. Beaufort and Chukchi 
+seas. 
+
+The proposed actions considered in the DEIS are: 
+
+• NMFS’ issuance of incidental take authorizations (ITAs) under Section 101(a)(5) of the Marine 
+Mammal Protection Act (MMPA), for the taking of marine mammals incidental to conducting 
+seismic surveys, ancillary activities, and exploratory drilling; and 
+
+• BOEM’s issuance of permits and authorizations under the Outer Continental Shelf Lands Act for 
+seismic surveys and ancillary activities. 
+
+2.0 BACKGROUND 
+NMFS is serving as the lead agency for this EIS.  BOEM (formerly called the U.S. Minerals Management 
+Service) and the North Slope Borough are cooperating agencies on this EIS.  The U.S. Environmental 
+Protection Agency is serving as a consulting agency.  NMFS is also coordinating with the Alaska Eskimo 
+Whaling Commission pursuant to our co-management agreement under the MMPA. 
+
+The Notice of Intent to prepare an EIS was published in the Federal Register on February 8, 2010 (75 FR 
+6175).  On December 30, 2011, Notice of Availability was published in the Federal Register (76 FR 
+82275) that NMFS had released for public comment the ‘‘Draft Environmental Impact Statement for the 
+Effects of Oil and Gas Activities in the Arctic Ocean.” The original deadline to submit comments was 
+February 13, 2012.  Based on several written requests received by NMFS, the public comment period for 
+this DEIS was extended by 15 days.  Notice of extension of the comment period and notice of public 
+meetings was published January 18, 2012, in the Federal Register (77 FR 2513).  The comment period 
+concluded on February 28, 2012, making the entire comment period 60 days. 
+
+NMFS intends to use this EIS to:  1) evaluate the potential effects of different levels of offshore seismic 
+surveys and exploratory drilling activities occurring in the Beaufort and Chukchi seas; 2) take a 
+comprehensive look at potential cumulative impacts in the EIS project area; and 3) evaluate the 
+effectiveness of various mitigation measures.  NMFS will use the findings of the EIS when reviewing 
+individual applications for ITAs associated with seismic surveys, ancillary activities, and exploratory 
+drilling in the Beaufort and Chukchi seas. 
+
+3.0 THE ROLE OF CONSULTATION WITH INDIAN TRIBAL 
+GOVERNMENTS 
+
+Executive Order 13175 is intended to establish regular and meaningful consultation and collaboration 
+between federal agencies and federally-recognized tribal governments in the development of federal 
+regulatory practices that significantly or uniquely affect their communities.  The goal of government to 
+government collaboration for this DEIS is to work collaboratively with tribal governments within the EIS 
+project area in order to explore ways that the energy development in the Arctic can best co-exist with the 
+subsistence culture and way of life. 
+
+Tribal governments in each community, with the exception of Anchorage, were notified of the availability 
+of the DEIS and invited to give comments.  The first contact was via letter that was faxed, dated 
+December 22, 2011; follow-up calls and emails were made with the potentially affected Tribal 
+governments, and in the communities listed above, each government was visited during the comment 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 2 
+Draft Government to Government Comment Analysis Report 
+
+period.  Because NMFS was not able to make it to the communities of Nuiqsut, Kaktovik, and Point Lay 
+on the originally scheduled dates, a follow-up letter was sent on February 29, 2012, requesting a 
+teleconference meeting for government to government consultation.  Nuiqsut and Point Lay rescheduled 
+with teleconferences.  However, the Native Village of Nuiqsut did not call-in to the rescheduled 
+teleconference.  The comments received during government to government consultation between NMFS, 
+BOEM, and the Tribal governments are included in this Comment Analysis Report (CAR). 
+
+A total of five government to government public meetings were held to inform and to solicit comments on 
+the DEIS. The meetings consisted of a brief presentation, and then a comment opportunity. Transcripts of 
+each public meeting are available on the project website: http://www.nmfs.noaa.gov/pr/permits/eis/arctic.htm.  
+The five government to government meetings that were held are identified in Table 1. 
+
+Table 1.  Government to Government Meetings, Locations and Dates 
+
+Meeting Date Location 
+
+Iñupiat Community of 
+the Arctic Slope (ICAS) 
+
+January 31, 2012 ICAS office, Barrow, AK 
+
+Native Village of 
+Barrow 
+
+January 31, 2012 Native Village of Barrow office,  
+Barrow, AK 
+
+Native Village of 
+Kivalina 
+
+February 6, 2012 Native Village of Kivalina office, 
+Kivalina, AK 
+
+Native Village of 
+Kotzebue IRA  
+
+February 7, 2012 IRA Council building,  
+Kotzebue, AK 
+
+Native Village of Point 
+Lay  
+
+April 3, 2012 Via teleconference 
+Point Lay, AK; Silver Spring, MD; Anchorage, AK 
+
+ 
+
+NMFS and the cooperating agencies will review all comments, determine how the comments should be 
+addressed, and make appropriate revisions in preparing the Final EIS.  The Final EIS will contain the 
+comments submitted and a summary of comment responses. 
+
+The Final EIS will include public notice of document availability, the distribution of the document, and a 
+30-day comment/waiting period on the final document.  NMFS and BOEM are expected to each issue a 
+separate Record of Decision (ROD), which will then conclude the EIS process in early 2013.  The 
+selected alternative will be identified in each ROD, as well as the agency’s rationale for their conclusions 
+regarding the environmental effects and appropriate mitigation measures for the proposed project. 
+
+ 
+
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 3 
+Draft Government to Government Comment Analysis Report 
+
+4.0 ANALYSIS OF SUBMISSIONS 
+The body of this report provides a brief summary of the comment analysis process and the comments that 
+were received during the public comment period.  Appendix A follows this narrative, and includes the 
+Comment Index.  
+
+Comments were received on the DEIS in several ways: 
+
+• Oral discussion or testimony from the government to government meeting transcripts; 
+
+• Written comments submitted electronically by email or through the project website. 
+
+NMFS received a total of seven unique submissions on the DEIS from tribal entities (five government to 
+government meeting transcripts and two written comment letters).  The complete text of comments 
+received will be included in the Administrative Record for the EIS. 
+
+This CAR provides an analytical summary of these submissions.  It presents the methodology used by 
+NMFS in reviewing, sorting, and synthesizing substantive comments within each submission into 
+common themes.  As described in the following sections of this report, a careful and deliberate approach 
+has been undertaken to ensure that all substantive public comments were captured. 
+
+The coding phase was used to divide each submission into a series of substantive comments (herein 
+referred to as ‘comments’).  All submissions on the DEIS were read, reviewed, and logged into the 
+Comment Analysis System database (CASy) where they were assigned an automatic tracking number 
+(Submission ID).  These comments were recorded into the CASy and given a unique Comment ID 
+number (with reference to the Submission ID) for tracking and synthesis.  The goal of this process was to 
+ensure that each sentence and paragraph in a submission containing a substantive comment pertinent to 
+the DEIS was entered into the CASy.  Substantive content constituted assertions, suggested actions, data, 
+background information, or clarifications relating to the content of the DEIS. 
+
+Comments were assigned subject issue categories to describe the content of the comment (see Table 2).  
+The issues were grouped by general topics, including effects, available information, regulatory 
+compliance, and Iñupiat culture.  The relative distribution of comments by issue is shown in Figure 1. 
+
+A total of 19 issue categories were developed for coding during the first step of the analysis process as 
+shown in Table 2.  These categories evolved from common themes found throughout the submissions.  
+Some categories correspond directly to sections of the DEIS, while others focus on more procedural 
+topics.  Several submissions included attachments of scientific studies or reports or requested specific 
+edits to the DEIS text. 
+
+The public comment submissions generated 185 substantive comments, which were then grouped into 
+Statements of Concern (SOCs).  SOCs are summary statements intended to capture the different themes 
+identified in the substantive comments.  SOCs are frequently supported by additional text to further 
+explain the concern, or alternatively to capture the specific comment variations within that grouping.  
+SOCs are not intended to replace actual comments.  Rather, they summarize for the reader the range of 
+comments on a specific topic. 
+
+Every substantive comment was assigned to an SOC; a total of 82 SOCs were developed.  Each SOC is 
+represented by an issue category code followed by a number.  NMFS will use the SOCs to respond to 
+substantive comments on the DEIS, as appropriate.  Each issue category may have more than one SOC.  
+For example, there are 6 SOCs under the issue category “Cumulative Effects” (CEF 1, CEF 2, CEF 3, 
+etc.).  Each comment was assigned to one SOC.  The complete list of SOCs can be found in Section 5.0. 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 4 
+Draft Government to Government Comment Analysis Report 
+
+Table 2.  Issue Categories for DEIS Comments 
+
+GROUP Issue Category Code Summary 
+
+Effects Cumulative Effects CEF Comments related to cumulative impacts in 
+general, or for a specific resource 
+
+Physical Environment 
+(General) 
+
+GPE Comments related to impacts on resources within 
+the physical environment (Physical 
+Oceanography, Climate, Acoustics, and 
+Environmental Contaminants & Ecosystem 
+Functions) 
+
+Social Environment 
+(General) 
+
+GSE Comments related to impacts on resources within 
+the social environment (Public Health, Cultural, 
+Land Ownership/Use/Management, 
+Transportation, Recreation and Tourism, Visual 
+Resources, and Environmental Justice) 
+
+Habitat  HAB Comments associated with habitat requirements, 
+or potential habitat impacts from seismic 
+activities and exploratory drilling. Comment 
+focus is habitat, not animals. 
+
+Marine Mammal and other 
+Wildlife Impacts 
+
+MMI General comments related to potential impacts to 
+marine mammals or other wildlife, unrelated to 
+subsistence resource concepts. 
+
+Oil Spill Risks OSR Concerns about potential for oil spill, ability to 
+clean up spills in various conditions, potential 
+impacts to resources or environment from spills. 
+
+Socioeconomic Impacts SEI Comments on economic impacts to local 
+communities, regional economy, and national 
+economy, can include changes in the social or 
+economic environments. 
+
+Subsistence Resource 
+Protection 
+
+SRP Comments on need to protect subsistence 
+resources and potential impacts to these 
+resources. Can include ocean resources as our 
+garden, contamination. 
+
+Water and Air Quality WAQ Comments regarding water and air quality, 
+including potential to impact or degrade these 
+resources. 
+
+Info 
+Available 
+
+Data DATA Comments referencing scientific studies that 
+should be considered. 
+
+Research, Monitoring, 
+Evaluation Needs 
+
+RME Comments on baseline research, monitoring, and 
+evaluation needs  
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 5 
+Draft Government to Government Comment Analysis Report 
+
+GROUP Issue Category Code Summary 
+
+Process: 
+NEPA, 
+Permits, the 
+DEIS 
+
+Alternatives ALT Comments related to alternatives or alternative 
+development. 
+
+Coordination and 
+Compatibility 
+
+COR Comments on compliance with statues, laws or 
+regulations and Executive Orders that should be 
+considered; coordinating with federal, state, or 
+local agencies, organizations, or potential 
+applicants; permitting requirements. 
+
+Mitigation Measures MIT Comments related to suggestions for or 
+implementation of mitigation measures. 
+
+NEPA NEP Comments on aspects of the NEPA process 
+(purpose and need, scoping, public involvement, 
+etc.), issues with the impact criteria (Chapter 4), 
+or issues with the impact analysis. 
+
+Regulatory Compliance REG Comments associated with compliance with 
+existing regulations, laws, and statutes. 
+
+General Editorial EDI Comments associated with specific text edits to 
+the document. 
+
+Iñupiat 
+Culture 
+
+Iñupiat Culture and Way of 
+Life 
+
+ICL Comments related to potential cultural impacts or 
+desire to maintain traditional practices 
+(PEOPLE). 
+
+Use of Traditional 
+Knowledge 
+
+UTK Comments regarding how traditional knowledge 
+(TK) is used in the document or decision making 
+process, need to incorporate TK, or processes for 
+documenting TK. 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 6 
+Draft Government to Government Comment Analysis Report 
+
+Figure 1:  Comments by Issue 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 7 
+Draft Government to Government Comment Analysis Report 
+
+5.0 STATEMENTS OF CONCERN 
+This section presents the SOCs developed to help summarize comments received on the DEIS.  To assist 
+in finding which SOCs were contained in each submission, a Submission and Comment Index 
+(Appendix A) was created.  The index is a list of all submissions received, presented alphabetically by the 
+last name of the commenter, as well as the Submission ID associated with the submission, and which 
+SOCs responds to their specific comments.  To identify the specific issues that are contained in an 
+individual submission: 1) search for the submission of interest in Appendix A; 2) note which SOC codes 
+are listed under the submissions; 3) locate the SOC within Section 5.0; and 4) read the text next to that 
+SOC.  Each substantive comment contained in a submission was assigned to one SOC. 
+
+ 
+
+  
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 8 
+Draft Government to Government Comment Analysis Report 
+
+Alternatives (ALT) 
+ALT Comments related to alternatives or alternative development. 
+
+ALT 1 NMFS should adopt the No Action Alternative (Alternative 1) as the preferred alternative, 
+which represents a precautionary, ecosystem-based approach. There is a considerable amount 
+of public support for this alternative. It is the only reliable way to prevent a potential 
+catastrophic oil spill from occurring in the Arctic Ocean, and provides the greatest protections 
+from negative impacts to marine mammals from noise and vessel strikes. Alternative 1 is the 
+only alternative that makes sense given the state of missing scientific baseline, as well as 
+long-term, data on impacts to marine mammals and subsistence activities resulting from oil 
+and gas exploration. 
+
+ALT 2 The “range” of action alternatives only considers two levels of activity. The narrow range of 
+alternatives presented in the DEIS and the lack of specificity regarding the source levels, 
+timing, duration, and location of the activities being considered do not provide a sufficient 
+basis for determining whether other options might exist for oil and gas development with 
+significantly less environmental impact, including reduced effects on marine mammals. 
+NMFS and BOEM should expand the range of alternatives to ensure that oil and gas 
+exploration activities have no more than a negligible impact on marine mammal species and 
+stocks, and will not have adverse impacts on the Alaska Native communities that depend on 
+the availability of marine mammals for subsistence, as required under the Marine Mammal 
+Protection Act. 
+
+ALT 3 The levels of oil and gas exploration activity identified in Alternatives 2 and 3 are not 
+accurate. In particular, the DEIS significantly over estimates the amount of seismic 
+exploration that is reasonably foreseeable in the next five years, while underestimating the 
+amount of exploration drilling that could occur. The alternatives are legally flawed because 
+none of the alternatives address scenarios that are currently being contemplated and which are 
+most likely to occur. For example: 
+
+• Level 1 activity assumes as many as three site clearance and shallow hazard survey 
+programs in the Chukchi Sea, while Level 2 activity assumes as many as 5 such 
+programs. By comparison, the ITR petition recently submitted by AOGA to USFWS for 
+polar bear and walrus projects as many as seven (and as few as zero) shallow hazard 
+surveys and as many as two (and as few as one) other G&G surveys annually in the 
+Chukchi Sea over the next five years. 
+
+• The assumption for the number of source vessels and concurrent activity is unlikely. 
+• By 2014, ConocoPhillips intends to conduct exploration drilling in the Chukchi Sea. It is 
+
+also probable that Statoil will be conducting exploration drilling on their prospects in the 
+Chukchi Sea beginning in 2014. Accordingly, in 2014, and perhaps later years depending 
+upon results, there may be as many as three exploration drilling programs occurring in 
+the Chukchi Sea. 
+
+The alternatives scenarios should be adjusted by NMFS to account for realistic levels of 
+seismic and exploratory drilling activities, and the subsequent impact analyses should be 
+substantially revised. The DEIS does not explain why alternatives that would more accurately 
+represent likely levels of activity were omitted from inclusion in the DEIS as required under 
+40 C.F.R. Sections 1500.1 and Section 1502.14. 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 9 
+Draft Government to Government Comment Analysis Report 
+
+ALT 4 NMFS should include a community-based alternative that establishes direct reliance on the 
+Conflict Avoidance Agreement (CAA), and the collaborative process that has been used to 
+implement it. The alternative would include a fully developed suite of mitigation measures 
+similar to what is included in each annual CAA. This alternative would also include: 
+
+• a communications scheme to manage industry and hunter vessel traffic during whale 
+hunting; 
+
+• time-area closures that provide a westward-moving buffer ahead of the bowhead 
+migration in areas important for fall hunting by our villages; 
+
+• vessel movement restrictions and speed limitations for industry vessels moving in the 
+vicinity of migrating whales; 
+
+• limitations on levels of specific activities; 
+• limitations on discharges in near-shore areas where food is taken and eaten directly from 
+
+the water; 
+• other measures to facilitate stakeholder involvement; and 
+• an annual adaptive decision making process where the oil industry and Native groups 
+
+come together to discuss new information and potential amendments to the mitigation 
+measures and/or levels of activity. 
+
+NMFS should also include a more thorough discussion of the 20-year history of the CAA to 
+provide better context for assessing the potential benefits of this community-based 
+alternative. 
+
+ALT 5 NMFS should include an alternative in the Final EIS that blends the following components of 
+the existing DEIS alternatives, which is designed to benefit subsistence hunting: 
+
+• Alternative 2 activity levels; 
+• Mandatory time/area closures of Alternative 4; 
+• Alternative technologies from Alternative 5; 
+• Zero discharge in the Beaufort Sea; 
+• Limitation on vessel transit into the Chukchi Sea; 
+• Protections for the subsistence hunt in Wainwright, Point Hope, and Point Lay; 
+• Sound source verification; 
+• Expanded exclusion zones for seismic activities; and 
+• Limitations on limited visibility operation of seismic equipment. 
+
+ALT 6 The analysis in the DEIS avoids proposing a beneficial conservation alternative and 
+consistently dilutes the advantages of mitigation measures that could be used as part of such 
+an alternative. NEPA requires that agencies explore alternatives that “will avoid or minimize 
+adverse effects of these actions upon the quality of the human environment.” Such an 
+alternative could require all standard and additional mitigation measures, while adding limits 
+such as late-season drilling prohibitions to protect migrating bowhead whales and reduce the 
+harm from an oil spill. NMFS should consider analyzing such an alternative in the Final EIS. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 10 
+Draft Government to Government Comment Analysis Report 
+
+Cumulative Effects (CEF) 
+CEF Comments related to cumulative impacts in general, or for a specific resource. 
+
+CEF 1 NMFS should review the cumulative effects section; many “minor” and “negligible” impacts 
+can combine to be more than “minor” or “negligible.” 
+
+CEF 2 A narrow focus on oil and gas activities is likely to underestimate the overall level of impact 
+on the bowhead whale. Bowhead whales are long-lived and travel great distances during their 
+annual migration, leaving them potentially exposed to a wide range of potential 
+anthropogenic impacts and cumulative effects over broad geographical and temporal scales. 
+An Ecosystem Based Management approach would better regulate the totality of potential 
+impacts to wildlife habitat and ecosystem services in the Arctic. 
+
+CEF 3 NMFS should include more in its cumulative effects analysis regarding the impacts caused 
+by: 
+
+• Climate change; 
+• Oil Spills; 
+• Ocean noise; 
+• Planes; 
+• Transportation in general; 
+• Discharge; 
+• Assessments/research/monitoring; 
+• Dispersants; and 
+• Invasive species. 
+
+CEF 4 The cumulative effects analysis overall in the DEIS is inadequate.  Specific comments 
+include: 
+
+• The DEIS fails to develop a coherent analytical framework by which impacts are 
+assessed and how decisions are made; 
+
+• The cumulative impact section does not provide details about what specific methodology 
+was used; 
+
+• The cumulative effects analysis does not adequately assess the impacts from noise, 
+air/water quality, subsistence, and marine mammals; 
+
+• The list of activities is incomplete; 
+• The assessment of impacts to employment/socioeconomics/income are not considered in 
+
+assessment of cumulative impacts for any alternative other than the no action alternative; 
+• The industry has not shown that their activities will have no cumulative, adverse and 
+
+unhealthy effects upon the animals, the air, the waters nor the peoples of the Coastal 
+Communities in the Arctic; 
+
+• The analysis on seals and other pinnipeds is inadequate and is not clear on whether 
+potential listings were considered; 
+
+• Recent major mortality events involving both walrus and ice seals must be considered 
+when determining impacts. A negligible impact determination cannot be made without 
+more information about these disease events. 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 11 
+Draft Government to Government Comment Analysis Report 
+
+CEF 5 Adverse cumulative effects need to be considered in more depth for marine mammals and 
+habitat, specifically regarding: 
+
+• Oil and gas activities in the Canadian Beaufort and the Russian Chukchi Sea; 
+• Entanglement with fishing gear; 
+• Increased vessel traffic; 
+• Discharge; 
+• Water/Air pollution; 
+• Sources of underwater noise; 
+• Climate change; 
+• Ocean acidification; and 
+• Production structures and pipelines. 
+
+CEF 6 NMFS should include the following in the cumulative effects analysis: 
+
+• Current and future activities including deep water port construction by the military, the 
+opening of the Northwest Passage, and production at BP’s Liberty prospect; 
+
+• Past activities including past activities in the Arctic for which NMFS has issued IHAs; 
+commercial shipping and potential deep water port construction; production of offshore 
+oil and gas resources or production related activities; and commercial fishing; 
+
+• A baseline for analysis of current activities and past IHAs; 
+• Recent studies: a passive acoustic monitoring study conducted by Scripps, and NOAA’s 
+
+working group on cumulative noise mapping; 
+• Ecosystem mapping of the entire project. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 12 
+Draft Government to Government Comment Analysis Report 
+
+Coordination and Compatibility (COR) 
+COR Comments on compliance with statues, laws or regulations and Executive Orders that should 
+
+be considered; coordinating with federal, state, or local agencies, organizations, or potential 
+applicants; permitting requirements. 
+
+COR 1 Continued government to government consultation needs to include: 
+
+• Increased focus on how NMFS and other federal agencies are required to protect natural 
+resources and minimize the impact of hydrocarbon development to adversely affect 
+subsistence hunting. 
+
+• More consultations are needed with the tribes to incorporate their traditional knowledge 
+into the DEIS decision making process. 
+
+• Direct contact between NMFS and Kotzebue IRA, Iñupiat Community of the Arctic 
+Slope (ICAS) and Native Village of Barrow should be initiated by NMFS. 
+
+• Tribal organizations should be included in meeting with stakeholders and cooperating 
+agencies. 
+
+• Consultation should be initiated early and from NOAA/NMFS, not through their 
+contractor. Meetings should be in person. 
+
+COR 2 Data and results that are gathered should be shared throughout the impacted communities. 
+Often, adequate data are not shared and therefore perceived inaccurate. Before and after an 
+IHA is authorized, communities should receive feedback from industry, NMFS, and marine 
+observers. 
+
+COR 3 There needs to be a permanent system of enforcement and reporting for marine mammal 
+impacts to ensure that oil companies are complying with the terms of the IHA and threatened 
+and endangered species authorizations. This system needs to be developed and implemented 
+in collaboration with the North Slope Borough and the ICAS and should be based on the 
+CAAs. 
+
+COR 4 NMFS should adopt an ecosystem based management approach consistent with the policy 
+objectives of the MMPA and the policy objectives of the Executive Branch and President 
+Obama's Administration. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 13 
+Draft Government to Government Comment Analysis Report 
+
+Data (DAT) 
+DATA Comments referencing scientific studies that should be considered. 
+
+DATA 1 NMFS should review the references below regarding air pollution: 
+
+Environmental Protection Agency (EPA) Region 10, Supplemental Statement of Basis for 
+Proposed OCS Prevention of Significant Deterioration Permits Noble Discoverer Drillship, 
+Shell Offshore Inc., Beaufort Sea Exploration Drilling Program, Permit No. R10OCS/PSD-
+AK-2010-01, Shell Gulf of Mexico Inc., Chukchi Sea Exploration Drilling Program, Permit 
+No. R10OCS/PSD-AK-09-01 at 65 (July 6, 2011) (Discoverer Suppl. Statement of Basis 
+2011), available at 
+http://www.epa.gov/region10/pdf/permits/shell/discoverer_supplemental_statement_of_basis
+_chukchi_and_beaufort_air_permits_070111.pdf. 393 EPA Region 10, Technical Support 
+Document, Review of Shell’s Supplemental Ambient Air Quality Impact Analysis for the 
+Discoverer OCS Permit Applications in the Beaufort and Chukchi Seas at 8 (Jun. 24, 
+2011)(Discoverer Technical Support Document), available at 
+http://www.epa.gov/region10/pdf/permits/shell/discoverer_ambient_air_quality_impact_anal
+ysis_06242011.pdf. 394 EPA, An Introduction to Indoor Air Quality: Nitrogen Dioxide, 
+available at http://www.epa.gov/iaq/no2.html#Health Effects Associated with Nitrogen 
+Dioxide 396 EPA, Particulate Matter: Health, available at 
+http://www.epa.gov/oar/particlepollution/health.html 
+
+DATA 2 NMFS should review the reference below regarding characterization of subsistence 
+areas/activities for Kotzebue: 
+
+Whiting, A., D. Griffith, S. Jewett, L. Clough, W. Ambrose, and J. Johnson. 2011. 
+Combining Inupiaq and Scientific Knowledge: Ecology in Northern Kotzebue Sound, Alaska. 
+Alaska Sea Grant, University of Alaska Fairbanks, SG-ED-72, Fairbanks. 71 pp, for a more 
+accurate representation, especially for Kotzebue Sound uses. 
+
+Crawford, J. A., K. J. Frost, L. T. Quakenbush, and A. Whiting. 201.2. Different habitat use 
+strategies by subadult and adult ringed seals (Phoca hispida} in the Bering and Chukchi seas. 
+Polar Biology 35{2):241-255. 
+
+DATA 3 NMFS should review the references below regarding Ecosystem-Based Management: 
+
+Environmental Law Institute. Intergrated Ecosystem-Based Management of the US. Arctic 
+Marine Environment- Assessing the Feasibility of Program and Development and 
+Implementation (2008) 
+
+Siron, Robert et al. Ecosystem-Based Management in the Arctic Ocean: A Multi- Level 
+Spatial Approach, Arctic Vol. 61, Suppl 1 (2008) (pp 86-102)2 
+
+Norwegian Polar Institute. Best Practices in Ecosystem-based Oceans Management in the 
+Arctic, Report Series No. 129 (2009) 
+
+The Aspen Institute Energy and Environment Program. The Shared Future: A Report of the 
+Aspen Institute Commission on Arctic Climate Change (2011) 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 14 
+Draft Government to Government Comment Analysis Report 
+
+Editorial (EDI) 
+EDI Comments associated with specific text edits to the document. 
+
+EDI 1 NMFS should consider incorporating the following edits into Chapter 1. 
+
+EDI 2 NMFS should consider incorporating the following edits into Chapter 2. 
+
+EDI 3 NMFS should consider incorporating the following edits into Chapter 3 – Physical 
+Environment. 
+
+EDI 4 NMFS should consider incorporating the following edits into Chapter 3 – Biological 
+Environment. 
+
+EDI 5 NMFS should consider incorporating the following edits into Chapter 3 – Social 
+Environment. 
+
+EDI 6 NMFS should consider incorporating the following edits into Chapter 4 – Physical 
+Environment. 
+
+EDI 7 NMFS should consider incorporating the following edits into Chapter 4 – Biological 
+Environment. 
+
+EDI 8 NMFS should consider incorporating the following edits into Chapter 4 – Social 
+Environment. 
+
+EDI 9 NMFS should consider incorporating the following edits into Chapter 4 – Oil Spill Analysis. 
+
+EDI 10 NMFS should consider incorporating the following edits into Chapter 4 – Cumulative Effects 
+Analysis. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 15 
+Draft Government to Government Comment Analysis Report 
+
+Physical Environment – General (GPE) 
+GPE Comments related to impacts on resources within the physical environment (Physical 
+
+Oceanography, Climate, Acoustics, and Environmental Contaminants & Ecosystem 
+Functions). 
+
+GPE 1 The EIS should include an analysis of impacts associated with climate change and ocean 
+acidification including: 
+
+• Addressing threats to species and associated impacts for the bowhead whale, pacific 
+walrus, and other Arctic species. 
+
+• Effects of loss of sea ice cover, seasonally ice-free conditions on the availability of 
+subsistence resources to Arctic communities. 
+
+• Increased community stress, including loss of subsistence resources and impacts to ice 
+cellars. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 16 
+Draft Government to Government Comment Analysis Report 
+
+Social Environment – General (GSE) 
+GSE Comments related to impacts on resources within the social environment (Public Health, 
+
+Cultural, Land Ownership/Use/Management, Transportation, Recreation and Tourism, Visual 
+Resources, and Environmental Justice). 
+
+GSE 1 The current environmental justice analysis is inadequate, and NMFS has downplayed the 
+overall threat to the Iñupiat people. The agency does not adequately address the following: 
+
+• The combined impacts of air pollution, water pollution, sociocultural impacts 
+(disturbance of subsistence practices), and economic impacts on Iñupiat people; 
+
+• The baseline health conditions of local communities and how it may be impacted by the 
+proposed oil and gas activities; 
+
+• Potential exposure to toxic chemicals and diminished air quality; 
+• The unequal burden and risks imposed on Iñupiat communities; and 
+• The analysis fails to include all Iñupiat communities. 
+
+GSE 2 Current and up to date health information should be evaluated and presented in the human 
+health assessments. Affected communities have a predisposition and high susceptibility to 
+health problems that need to be evaluated and considered when NMFS develops alternatives 
+and mitigation measures to address impacts. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 17 
+Draft Government to Government Comment Analysis Report 
+
+Habitat (HAB) 
+HAB Comments associated with habitat requirements, or potential habitat impacts from seismic 
+
+activities and exploratory drilling. Comment focus is habitat, not animals. 
+
+HAB 1 NMFS should consider an ecosystem-based management plan to protect habitat for the 
+bowhead whale and other important wildlife subsistence species of the Arctic. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 18 
+Draft Government to Government Comment Analysis Report 
+
+Iñupiat Culture and Way of Life (ICL) 
+ICL Comments related to potential cultural impacts or desire to maintain traditional practices. 
+
+ICL 1 Industrial activities (such as oil and gas exploration and production) jeopardize the long-term 
+health and culture of native communities. Specific concerns include: 
+
+• Impacts to Arctic ecosystems and the associated subsistence resources from pollutants, 
+noise, and vessel traffic; 
+
+• Community and family level cultural impacts related to the subsistence way of life; 
+• Preserving resources for future generations. 
+
+ICL 2 Native communities would be heavily impacted if a spill occurs, depriving them of 
+subsistence resources. NMFS should consider the impact of an oil spill when deciding upon 
+an alternative. 
+
+ICL 3 Native communities are at risk for changes from multiple threats, including climate change, 
+increased industrialization, access to the North Slope, melting ice, and stressed wildlife. 
+These threats are affecting Inupiat traditional and cultural uses and NMFS should stop 
+authorizing offshore oil and gas related activities until these threats to Iñupiat culture are 
+addressed. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 19 
+Draft Government to Government Comment Analysis Report 
+
+Mitigation Measures (MIT) 
+MIT Comments related to suggestions for or implementation of mitigation measures. 
+
+MIT 1 If Kotzebue is included in the EIS area because it is an eligible area for exploration activities, 
+then the DEIS needs to include recommendations for mitigating impacts through exclusion 
+areas, or timing issues, including: 
+
+• remove the Hope Basin from the EIS area; and 
+• develop and include additional area/time closures/restrictions for nearshore Kotzebue 
+
+Sound and for Point Hope and Kivalina in the Final EIS. 
+
+MIT 2 There should be no on-ice discharge of drilling muds due to the concentrated nature of waste 
+and some likely probability of directly contacting marine mammals or other wildlife like 
+arctic foxes and birds. Even if the muds are considered non-toxic, the potential for fouling fur 
+and feathers and impeding thermal regulation properties seems a reasonable concern. 
+
+MIT 3 There should be communication centers in the villages during bowhead and beluga hunting if 
+subsistence hunters find this useful and desirable. 
+
+MIT 4 The benefits of concurrent ensonification areas need to be given more consideration in 
+regards to 15 mile vs. 90 mile separation distances. It is not entirely clear what the 
+cost/benefit result is on this issue, including: 
+
+• Multiple simultaneous surveys in several areas across the migratory corridor could result 
+in a broader regional biological and subsistence impact -deflection could occur across a 
+large area of feeding habitat. 
+
+• Potential benefit would depend on the trajectory of migrating animals in relation to the 
+activity and total area ensonified. 
+
+• Consideration needs to be given to whether mitigation is more effective if operations are 
+grouped together or spread across a large area. 
+
+MIT 5 Use mitigation measures that are practicable and produce real world improvement on the 
+level and amount of negative impacts. Do not use those that theoretically sound good or look 
+good or feel good, but that actually result in an improved situation. Encourage trials of new 
+avoidance mechanisms. 
+
+MIT 6 Trained dogs are the most effective means of finding ringed seal dens and breathing holes in 
+Kotzebue Sound so should be used to clear path for on-ice roads or other on-ice activities. 
+
+MIT 7 The potential increased risk associated with the timing that vessels can enter exploration areas 
+needs to be considered: 
+
+• A delayed start could increase the risk of losing control of a VLOS that will more likely 
+occur at the end of the season when environmental conditions (ice and freezing 
+temperatures) rapidly become more challenging and hazardous. 
+
+• Operators could stage at leasing areas but hold off on exploration activity until July l5 or 
+until Point Lay beluga hunt is completed. 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 20 
+Draft Government to Government Comment Analysis Report 
+
+MIT 8 The DEIS should definitively establish the full suite of mandatory mitigation measures for 
+each alternative that will be required for any given site-specific activity, instead of listing a 
+series of mitigation measures that may or may not apply to site-specific actions. 
+
+• NMFS should ensure that mitigation measures are in place prior to starting any activity 
+rather than considering mitigation measures on a case by case basis later in the process 
+when it is more difficult as activities have advanced in planning. 
+
+• Make additional mitigation measures standard and include both for any level of activity 
+that includes, at a minimum, those activities described in Section 2.4.9 and 2.4.10 of the 
+DEIS. 
+
+• Mitigation measures required previously by IHAs (e.g., a 160dB vessel monitoring zone 
+for whales during shallow hazard surveys) show it is feasible for operators to perform 
+these measures. 
+
+• NMFS should require a full suite of standard mitigation measures for every take 
+authorization issued by the agency and they should also be included under the terms and 
+conditions for the BOEM’s issuance of geological and geophysical permits and ancillary 
+activity and exploratory drilling approvals. 
+
+• A number of detection-based measures should be standardized (e.g., sound source 
+verification, PAM). 
+
+• Routing vessels around important habitat should be standard. 
+
+MIT 9 Vessel restrictions and other measures need to be implemented to mitigate ship strikes, 
+including: 
+
+• Vessels should be prohibited from sensitive areas with high levels of wildlife presence 
+that are determined to be key habitat for feeding, breeding, or calving. 
+
+• Ship routes should be clearly defined, including a process for annual review to update 
+and re-route shipping around these sensitive areas. 
+
+• Speed restrictions may also need to be considered if re-routing is not possible. 
+• NMFS should require use of real-time PAM in migratory corridors and other sensitive 
+
+areas to alert ships to the presence of whales, primarily to reduce ship-strike risk. 
+
+MIT 10 Time/area closures should be included in any alternative as standard avoidance measures and 
+should be expanded to include other deferral areas, including: 
+
+• North of Dease Inlet to Smith Bay. 
+• Northeast of Smith Bay. 
+• Northeast of Cape Halkett where bowhead whales feed. 
+• Boulder patch communities. 
+• Particular caution should be taken in early fall throughout the region, when peak use of 
+
+the Arctic by marine mammals takes place. 
+• Add the Coastal Band of the Chukchi Sea (~50 miles wide) [Commenting on the original 
+
+Lease Sale 193 draft EIS, NMFS strongly endorse[d] an alternative that would have 
+avoided any federal leases out to 60 miles and specifically argued that a 25-mile buffer 
+[around deferral areas] is inadequate]. 
+
+• Expand Barrow Canyon time/area closure area to the head of Barrow Canyon (off the 
+coast between Point Barrow and Point Franklin), as well as the mouth of Barrow Canyon 
+along the shelf break. 
+
+• Areas to the south of Hanna Shoal are important to walrus, bowhead whales, and gray 
+whales. 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 21 
+Draft Government to Government Comment Analysis Report 
+
+• Encourage NMFS to consider a time/area closure during the winter and spring in the 
+Beaufort Sea that captures the ice fracture zone between landfast ice and the pack ice 
+where ringed seal densities are the highest. 
+
+• Nuiqsut has long asked federal agencies to create a deferral area in the 20 miles to the 
+east of Cross Island. This area holds special importance for bowhead whale hunters and 
+the whales. 
+
+• NMFS should consider designing larger exclusion zones (detection-dependent or -
+independent) around river mouths with anadromous fish runs to protect beluga whale 
+foraging habitat, insofar as these areas are not encompassed by seasonal closures. 
+
+• Final EIS must consider including additional (special habitat) areas and developing a 
+mechanism for new areas to be added over the life of the EIS. 
+
+• Any protections for Camden Bay should extend beyond the dimensions of the Bay itself 
+to include areas located to the west and east, recently identified by NMFS as having 
+special significance to bowhead whales. 
+
+• Additional analysis is required related to deferral areas specific to subsistence hunting. 
+Any Final EIS must confront the potential need for added coastal protections in the 
+Chukchi Sea. 
+
+• There should be a buffer zone between Burger and the coast during migration of walrus 
+and other marine mammals. 
+
+• Future measures should include time/area closures for IEAs (Important Ecological Areas) 
+of the Arctic. 
+
+MIT 11 Additional Mitigation Measure D7 must be deleted or clarified: 
+
+• The transit restrictions are not identified, nor are the conditions under which the transit 
+might be allowed. 
+
+• Some hunting of marine mammals in the Chukchi Sea occurs year round making this 
+measure impracticable. 
+
+MIT 12 Barrow Canyon merits considerable protection through time/area closures. In the spring, a 
+number of marine mammals use this area, including bowhead whales, beluga whales, bearded 
+seals, ringed seals, and polar bears. In the summer and fall this area is also important for gray 
+whales, walrus, and bearded seals. 
+
+MIT 13 NMFS needs to expand and update its list of mitigation measures to include: 
+
+• zero discharge requirement to protect water quality and subsistence resources. 
+• require oil and gas companies who are engaging in exploration operations to obtain EPA 
+
+issued air permits. 
+• more stringent regulation of marine vessel discharge for both exploratory drilling 
+
+operations, support vessels, and other operations to eliminate possible environmental 
+contamination through the introduction of pathogens and foreign organisms through 
+ballast water, waste water, sewage, and other discharge streams 
+
+• the requirement that industry signs a Conflict Avoidance Agreement (CAA) with the 
+relevant marine mammal co-management organizations 
+
+• Another Standard Mitigation Measure should be developed with regards to marine 
+mammal monitoring during darkness and inclement weather. This should require more 
+efficient and appropriate protocols. If more appropriate monitoring methods cannot be 
+developed, NMFS should not allow for seismic surveys during times when monitoring is 
+severely limited. 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 22 
+Draft Government to Government Comment Analysis Report 
+
+• NMFS should consider for mitigation a requirement that seismic survey vessels use the 
+lowest practicable source levels, minimize horizontal propagation of the sound signal, 
+and/or minimize the density of track lines consistent with the purposes of the survey. 
+Accordingly, the agencies should consider establishing a review panel, potentially 
+overseen by both NMFS and BOEM, to review survey designs with the aim of reducing 
+their wildlife impacts 
+
+• A requirement that all vessels undergo measurement for their underwater noise output per 
+American National Standards Institute/Acoustical Society of America standards (S12.64); 
+that all vessels undergo regular maintenance to minimize propeller cavitation, which is 
+the primary contributor to underwater ship noise; and/or that all new vessels be required 
+to employ the best ship quieting designs and technologies available for their class of ship 
+
+• NMFS should consider requiring aerial monitoring and/or fixed hydrophone arrays to 
+reduce the risk of near-source injury and monitor for impacts 
+
+• Make MMOs (PSOs) mandatory on the vessels. 
+• Unmanned flights should also be investigated for monitoring, as recommended by 
+
+NMFS’s Open Water Panel. 
+• Mitigation and monitoring measures concerning the introduction of non-native species 
+
+need to be identified and analyzed 
+
+MIT 14 Both the section on water quality and subsistence require a discussion of mitigation measures 
+and how NMFS intends to address local community concerns about contamination of 
+subsistence food from sanitary waste and drilling muds and cuttings. 
+
+MIT 15 The most effective means of creating mitigation that works is to start small and focused and 
+reassess after a couple of seasons to determine what works and what doesn’t work. Mitigation 
+measures could then be adjusted to match reality. 
+
+MIT 16 There should be a mechanism by which the public can be apprised of and provide input on 
+the efficacy of mitigation efforts. Suggestions include: 
+
+• Something similar to the Open Water meetings 
+• Put out a document about the assumptions upon which all these NEPA documents and 
+
+permits are based and assess mitigation: Are they working, how did they work, what were 
+the problems and challenges, where do we need to focus attention. 
+
+• Include dates if something unusual happened that season that would provide an 
+opportunity to contact NOAA or BOEM or whoever and say, hey, by the way, during this 
+thing we noticed this or whatever. 
+
+• This would just help us to again refine our mitigation recommendations in the future. 
+
+MIT 17 If explosives are used, there needs to be mitigation to ensure that the explosives are 
+accounted for. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 23 
+Draft Government to Government Comment Analysis Report 
+
+Marine Mammal and other Wildlife Impacts (MMI) 
+MMI General comments related to potential impacts to marine mammals or wildlife, unrelated to 
+
+subsistence resource concepts. 
+
+MMI 1 Loss of sea-ice habitat due to climate change may make polar bears, ice seals, and walrus 
+more vulnerable to impacts from oil and gas activities, which needs to be considered in the 
+EIS. The DEIS needs to adequately consider impacts in the context of climate change: 
+
+• The added stress of habitat loss due to climate change should form a greater part of the 
+DEIS analysis. 
+
+• Both polar bears and ringed seals may be affected by multiple-year impacts from 
+activities associated with drilling (including an associated increase in vessel traffic) given 
+their dependence on sea-ice and its projected decline. 
+
+• Shifts in distribution and habitat use by polar bears and walrus in the Beaufort and 
+Chukchi seas attributable to loss of sea ice habitat is insufficiently incorporated into the 
+DEIS analysis. The DEIS only asserts that possible harm to subsistence and to polar bear 
+habitat from oil and gas operations would be negligible compared to the potential for 
+dramatic sea ice loss due to climate change and changes in ecosystems due to ocean 
+acidification. For walrus and ice seals, the DEIS simply notes potentially catastrophic 
+climate effects without adequately considering how oil and gas activities might leave 
+species more vulnerable to that outcome. 
+
+• Sub-adult polar bears that return to land in summer because of sea-ice loss are more 
+likely to be impacted by activities in the water, onshore support of open water activities, 
+and oil spills; this could represent potentially major impacts to polar bear populations and 
+should be considered in any final EIS. 
+
+• Walrus feeding grounds are being transformed and walrus are hauling out on land in large 
+numbers, leaving them vulnerable to land-based disturbances. 
+
+MMI 2 Impacts from ship-strikes (fatal and non-fatal) need to be given greater consideration, 
+especially with increased ship traffic and the development of Arctic shipping routes. 
+
+• Potential impacts on beluga whales and other resources in Kotzebue Sound needs to be 
+considered with vessels traveling past this area. 
+
+• There is great concern for ship strikes of bowhead and other whales and these significant 
+impacts must be addressed in conjunction with the project alternatives. 
+
+MMI 3 NMFS should include a discussion of the recent disease outbreak affecting seals and walrus, 
+include this outbreak as part of the baseline, and discuss how potential similar future events 
+(of unknown origin) are likely to increase in the future. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 24 
+Draft Government to Government Comment Analysis Report 
+
+NEPA (NEP) 
+NEP Comments on aspects of the NEPA process (purpose and need, scoping, public involvement, 
+
+etc.), issues with the impact criteria (Chapter 4), or issues with the impact analysis. 
+
+NEP 1 The DEIS analysis should consider the frequency component, nature of the sound source, 
+cetacean hearing sensitivities, and biological significance when determining what constitutes 
+Level B incidental take. The working assumption that impulsive noise never disrupts marine 
+mammal behavior at levels below 160 dB (RMS), and disrupts behavior with 100 percent 
+probability at higher levels has been repeatedly demonstrated to be incorrect, including in 
+cases involving the sources and areas being considered in the DEIS. The reliance on the 160 
+dB guideline for Level B take estimation is antiquated and should be revised by NMFS. The 
+criteria should be replaced by a combination of Sound Exposure Level limits and Peak (not 
+RMS) Sound Pressure Levels or other metric being considered. 
+
+NEP 2 The communities are feeling overwhelmed with the amount of documents they are being 
+asked to review related to various aspects of oil and gas exploration and development 
+activities. The system of commenting on EIS documents needs to be revised. However, the 
+forums of public meetings are important to people in the communities so their concerns can 
+be heard before they are implemented in the EIS. 
+
+NEP 3 The EIS project area boundary should be extended through the Bering Straits to 
+accommodate impacts resulting from vessel transit to and from lease areas. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 25 
+Draft Government to Government Comment Analysis Report 
+
+Oil Spill Risks (OSR) 
+OSR Concerns about potential for oil spill, ability to clean up spills in various conditions, potential 
+
+impacts to resources or environment from spills. 
+
+OSR 1 A large oil spill in the extreme conditions present in Arctic waters would be extremely 
+difficult or impossible to clean up. Current cleanup methods are unsuitable and ineffective. 
+Oil spill responses need to be developed in advance of offshore development. NMFS and 
+BOEM need to consider the following: 
+
+• Current technology only allows rescue and repair attempts during ice free parts of the 
+year. If an oil spill occurs near or into freeze-up, the oil will remain trapped there until 
+spring. These spring lead systems and melt pools are important areas where wildlife 
+collect. 
+
+• How would oil be skimmed with sea ice present? 
+• How would rough waters affect oil spill response effectiveness and time, and could rough 
+
+seas and sea ice, in combination, churn the surface oil? 
+
+OSR 2 An oil spill being a low probability event is optimistic and would only apply to the 
+exploration phase. Once full development or production goes into effect, an oil spill is more 
+likely. Are there any data suggesting this is a low probability? NMFS should assume a spill 
+will occur and plan accordingly. 
+
+OSR 3 An oil spill in the arctic environment would be devastating to numerous biological systems, 
+habitats, communities and people. There is too little known about Arctic marine wildlife to 
+know what the population effects would be. Black (oiled) ice would expedite ice melt. The 
+analysis section needs to be updated. Not only would the Arctic be affected but the waters 
+surrounding the Arctic as well. 
+
+OSR 4 The oil spill section needs to be reworked. NMFS should consider also working the 
+discussion of oil spills in the discussion the alternatives. No overall risks to the environment 
+are stated, or severity of spills in different areas, shoreline oiling is inadequate, impacts to 
+whales may be of higher magnitude due to important feeding areas and spring lead systems. 
+Recovery rates should be re evaluated for spilled oil. There are no site-specific details. The 
+trajectory model needs to be more precise. 
+
+OSR 5 The DEIS confirms our [the affected communities] worst fears about both potential negative 
+impacts from offshore drilling and the fact that the federal government appears ready to place 
+on our communities a completely unacceptable risk at the behest of the international oil 
+companies. Native people in Alaska depend on the region for food and economical support. 
+An oil spill would negatively impact the local economies and the livelihoods of Native 
+people. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 26 
+Draft Government to Government Comment Analysis Report 
+
+Regulatory Compliance (REG) 
+REG Comments associated with compliance with existing regulations, laws and statutes. 
+
+REG 1 NMFS should revise the DEIS to encompass only those areas that are within the agency’s 
+jurisdiction and remove provisions and sections that conflicts with other federal and state 
+agency jurisdictions (BOEM, USFWS, EPA, Coast Guard, and State of Alaska). The current 
+DEIS is felt to constitute a broad reassessment and expansion of regulatory oversight. 
+Comments include: 
+
+• The EIS mandates portions of CAAs, which are voluntary and beyond NMFS 
+jurisdiction. 
+
+• The EIS proposes polar bear mitigations measures that could contradict those issued by 
+USFWS under the MMPA and ESA. 
+
+• Potential requirements for zero discharge encroach on EPA’s jurisdiction under the Clean 
+Water Act regarding whether and how to authorize discharges. 
+
+• Proposed mitigation measures, acoustic restrictions, and “Special Habitat” area 
+effectively extend exclusion zones and curtail lease block access, in effect “capping” 
+exploration activities. These measures encroach on the Department of the Interior’s 
+jurisdiction to identify areas open for leasing and approve exploration plans, as 
+designated under OCSLA. 
+
+• The proposed requirement for an Oil Spill Response Plan conflicts with BOEM, Bureau 
+of Safety and Environmental Enforcement and the Coast Guard’s jurisdiction, as 
+established in OPA-90, which requires spill response planning. 
+
+• NMFS does not have the authority to restrict vessel transit, which is under the jurisdiction 
+of the Coast Guard. 
+
+• Proposed restrictions, outcomes, and mitigation measures duplicate and contradict 
+existing State lease stipulations and mitigation measures. 
+
+REG 2 The DEIS needs to be changed to reflect the omnibus bill signed by President Obama on 
+December 23, 2011 that transfers Clean Air Act permitting authority from the EPA 
+Administrator to the Secretary of Interior (BOEM) in Alaska Arctic OCS. 
+
+REG 3 Until there an indication that BOEM intends to adopt new air permitting regulations for the 
+Arctic or otherwise adopt regulations that will ensure compliance with the requirements of 
+the Clean Air Act, it is important that NMFS address the worst case scenario- offshore oil and 
+gas activities proceeding under BOEM's current regulations. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 27 
+Draft Government to Government Comment Analysis Report 
+
+Research, Monitoring, Evaluation Needs (RME) 
+RME Comments on baseline research, monitoring, and evaluation needs. 
+
+RME 1 The DEIS does not address or acknowledge the increasingly well-documented gaps in 
+knowledge of baseline environmental conditions and data that is incomplete in the Beaufort 
+and Chukchi seas for marine mammals and fish, nor how baseline conditions and marine 
+mammal populations are being affected by climate change. Information regarding 
+information regarding the composition, distribution, status, ecology of the living marine 
+resources and sensitive habitats in these ecosystems needs to be better known. Baseline data 
+are also critical to developing appropriate mitigation measures and evaluating their 
+effectiveness. It is unclear what decisions over what period of time would be covered under 
+the DEIS or how information gaps would be addressed and new information incorporated into 
+future decisions. The information gaps in many areas with relatively new and expanding 
+exploration activities are extensive and severe enough that it may be too difficult for 
+regulators to reach scientifically reliable conclusions about the risks to marine mammals from 
+oil and gas activities. 
+
+To complicate matters, much of the baseline data about individual species (e.g., population 
+dynamics) remains a noteworthy gap. It is this incomplete baseline that NMFS uses as their 
+basis for comparing the potential impacts of each alternative. 
+
+RME 2 Throughout the DEIS, there are additional acknowledgements of missing information, but 
+without any specific findings as to the importance to the agencies’ decision making, as 
+required by Section 1502.22, including: 
+
+• Foraging movements of pack-ice breeding seals are not known. 
+• There are limited data as to the effects of masking. The greatest limiting factor in 
+
+estimating impacts of masking is a lack of understanding of the spatial and temporal 
+scales over which marine mammals actually communicate. 
+
+• It is not known whether impulsive noises affect marine mammal reproductive rate or 
+distribution. 
+
+• It is not currently possible to predict which behavioral responses to anthropogenic noise 
+might result in significant population consequences for marine mammals, such as 
+bowhead whales, in the future. 
+
+• The potential long-term effects on beluga whales from repeated disturbance are unknown. 
+Moreover, the current population trend of the Beaufort Sea stock of beluga whales is 
+unknown. 
+
+• The degree to which ramp-up protects marine mammals from exposure to intense noises 
+is unknown. 
+
+• Chemical response techniques to address an oil spill, such as dispersants could result in 
+additional degradation of water quality, which may or may not offset the benefits of 
+dispersant use. 
+
+• There is no way to tell what may or may not affect marine mammals in Russian, U.S., or 
+in Canadian waters. 
+
+  
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 28 
+Draft Government to Government Comment Analysis Report 
+
+RME 3 There is too little information known about the existing biological conditions in the Arctic, 
+especially in light of changes wrought by climate change, to be able to reasonably 
+understand, evaluate and address the cumulative, adverse impacts of oil and gas activities on 
+those arctic ice environments including: 
+
+• Scientific literature emphasizes the need to ensure that the resiliency of ecosystems is 
+maintained in light of the changing environmental conditions associated with climate 
+change. Uncertainties exist on topics for which more science focus is required, including 
+physical parameters, such as storm frequency and intensity, and circulation patterns, and 
+species response to environmental changes. 
+
+• There is little information on the potential for additional stresses brought by oil and gas 
+activity and increased shipping and tourism and how these potential stressors may 
+magnify the impacts associated with changing climate and shrinking sea ice habitats. 
+There are more studies that need to be done on invasive species, black carbon, aggregate 
+noise. 
+
+• It was noted that a majority of the studies available have been conducted during the 
+summer and there is limited data about the wintertime when there is seven to eight 
+months of ice on the oceans. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 29 
+Draft Government to Government Comment Analysis Report 
+
+Socioeconomic Impacts (SEI) 
+SEI Comments on economic impacts to local communities, regional economy, and national 
+
+economy, can include changes in the social or economic environments. 
+
+SEI 1 The analysis of socioeconomic impacts in the DEIS is inadequate. Comments include: 
+
+• The analysis claims inaccurately many impacts are unknown or cannot be predicted and 
+fails to consider the full potential of unrealized employment, payroll, government 
+revenue, and other benefits of exploration and development, as well as the effectiveness 
+of local hire efforts. 
+
+• The analysis is inappropriately limited in a manner not consistent with the analysis of 
+other impacts in the DEIS. Potential beneficial impacts from development should not be 
+considered “temporary” and economic impacts should not be considered “minor”. This 
+characterization is inconsistent with the use of these same terms for environmental 
+impacts analysis. 
+
+• NMFS did not provide a complete evaluation of the socioeconomic impacts of instituting 
+the additional mitigation measures. 
+
+• The projected increase in employment appears to be low; 
+• The forecasts for future activity in the DEIS scope of alternatives, if based on historical 
+
+activity, appear to ignore the impact of economic forces, especially resource value as 
+impacted by current and future market prices. Historical exploration activity in the 
+Chukchi and Beaufort OCS in the 1980s and early 1990s declined and ceased due to low 
+oil price rather than absence of resource; 
+
+• Positive benefits were not captured adequately. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 30 
+Draft Government to Government Comment Analysis Report 
+
+Subsistence Resource Protection (SRP) 
+SRP Comments on need to protect subsistence resources and potential impacts to these resources. 
+
+Can include ocean resources as our garden, contamination. 
+
+SRP 1 The DEIS is lacking in an in-depth analysis of impacts to subsistence. NMFS should analyze 
+the following in more detail: 
+
+• Effects of oil and gas activities on subsistence resources and how climate change could 
+make species even more vulnerable to those effects; 
+
+• The discussion of subsistence in the section on oil spills; 
+• Long-term impacts to communities from loss of our whale hunting tradition; 
+• Impacts on subsistence hunting that occur outside the project area, for example, in the 
+
+Canadian portion of the Beaufort Sea; 
+• Impacts associated with multiple authorizations taking place over multiple years. 
+
+SRP 2 Many people depend on the Beaufort and Chukchi seas for subsistence resources. Protection 
+of these resources is important to sustaining food sources, nutrition, athletics, and the culture 
+of Alaskan Natives for future generations. The EIS needs to consider not only subsistence 
+resources, but the food, prey, and habitat of those resources in its analysis of impacts. 
+
+SRP 3 NMFS should use the information acquired on subsistence hunting grounds and provide real 
+information about what will happen in these areas and when, and then disclose what the 
+impacts will be to coastal villages. 
+
+SRP 4 Subsistence resources could be negatively impacted by exploratory activities. Specific 
+comments include: 
+
+• Concerns about the health and welfare of the animals, with results such as that the 
+blubber is getting too hard, as a result of seismic activity; 
+
+• Reduction of animals; 
+• Noise from seismic operations, exploration drilling, and/or development and production 
+
+activities may make bowhead whales skittish and more difficult to hunt; 
+• Aircraft associated with oil and gas operations may negatively affect other subsistence 
+
+resources, including polar bears, walrus, seals, caribou, and coastal and marine birds, 
+making it more difficult for Alaska Native hunters to obtain these resources; 
+
+• Water pollution could release toxins that bioaccumulate in top predators, including 
+humans; 
+
+• Increased shipping traffic (including the potential for ship strikes) and the associated 
+noise are going to impact whaling and other marine mammal subsistence activities. 
+
+SRP 5 Bowhead whales and seals are not the only subsistence resource that Native Alaskan 
+communities rely upon. Fishing is also an important resource and different species are hunted 
+throughout the year. Subsistence users have expressed concern that activities to support 
+offshore exploration will change migratory patterns of fish and krill that occur along the 
+coastlines. The DEIS analysis should reflect these concerns. 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 31 
+Draft Government to Government Comment Analysis Report 
+
+Use of Traditional Knowledge (UTK) 
+UTK Comments regarding how traditional knowledge (TK) is used in the document or decision 
+
+making process, the need to incorporate TK, or processes for documenting TK. 
+
+UTK 1 It is important that both Western Science and TK be applied in the EIS. There needs to be a 
+clear definition of what TK is, and that it protects traditional ways of life but also provides 
+valuable information. TK that is used in NEPA documents should be used with consent. 
+
+UTK 2 To be meaningful, NMFS must obtain and incorporate TK before it commits to management 
+decisions that may adversely affect subsistence resources. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS 32 
+Draft Government to Government Comment Analysis Report 
+
+Water and Air Quality (WAQ) 
+WAQ Comments regarding water and air quality, including potential to impact or degrade these 
+
+resources. 
+
+WAQ 1 The air quality analysis on impacts is flawed and needs more information. Reliance on recent 
+draft air permits is not accurate especially for the increases in vessel traffic due to oil and gas 
+exploration. All emissions associated with oil and gas development need to be considered not 
+just those that are subject to direct regulation or permit conditions. Emissions calculations 
+need to include vessels outside the 25 mile radius not just inside. Actual icebreaker emissions 
+need to be included also. This will allow more accurate emissions calculations. The use of 
+stack testing results and other emissions calculations for Arctic operations are recommended. 
+
+WAQ 2 Many operators have agreed to use ultra-low sulfur fuel or low sulfur fuel in their operations, 
+but those that do not agree have to be accounted for. The use of projected air emissions for 
+NOx and SOz need to be included to account for those that do not use the lower fuel grades. 
+
+WAQ 3 Since air permits have not yet been applied for by oil companies engaging in seismic or 
+geological and geophysical surveys, control factors should not be applied to them without 
+knowing the actual information. 
+
+WAQ 4 Concerns about the potential for diversion of bowhead whales and other subsistence species 
+due to water and air discharges. The location of these discharges, and waste streams, and 
+where they will overlap between the air and water needs to be compared to the whale 
+migrations and discern the potential areas of impact. 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS  
+Draft Government to Government Comment Analysis Report 
+
+APPENDIX A 
+Submission and Comment Index 
+
+ 
+
+ 
+
+
+
+DRAFT 
+APRIL 20, 2012 
+
+ 
+
+Effects of Oil and Gas Activities in the Arctic Ocean EIS A-1 
+Draft Government to Government Comment Analysis Report 
+
+Commenter Submission ID  Comments 
+
+Iñupiat Community of the 
+Arctic Slope  
+(written comments) 
+
+3776  ALT 1, ALT 2, ALT 4, ALT 5, CEF 2, CEF 
+3, CEF 4, CEF 5, CEF 6, COR 1, COR 4, 
+DATA 1, DATA 3, EDI 8, GPE 1, GSE 1, 
+GSE 2, HAB 1, ICL 2, ICL 3, MIT 8, MIT 9, 
+MIT 13, MIT 14, MMI 2, MMI 3, OSR 1, 
+OSR 2, OSR 3, OSR 4, OSR 5, REG 2, REG 
+3, SRP 1, SRP 3, WAQ 1, WAQ 2, WAQ 3, 
+WAQ 4  
+
+Iñupiat Community of the 
+Arctic Slope  
+(Government to Government 
+Meeting) 
+
+13149  COR 1, ICL 1, MIT 17, RME 1, SEI 1, SRP 
+2, SRP 3  
+
+Native Village of Barrow  
+(Government to Government 
+Meeting) 
+
+13150  ALT 5, COR 1, COR 2, COR 3, NEP 1, NEP 
+2, NEP 3, RME 1, RME 2, RME 3, SRP 2, 
+SRP 5  
+
+Native Village of Kivalina 
+(Government to Government 
+Meeting) 
+
+13151  COR 1, SRP 4, UTK 1, UTK 2  
+
+Native Village of Kotzebue 
+IRA 
+(written comments) 
+
+3751  ALT 3, ALT 5, ALT 6, DATA 2, EDI 1, EDI 
+2, EDI 3, EDI 4, EDI 5, EDI 6, EDI 7, EDI 8, 
+EDI 9, EDI 10, GPE 1, MIT 1, MIT 2, MIT 
+3, MIT 4, MIT 5, MIT 6, MIT 7, MMI 2, 
+REG 1  
+
+Native Village of Kotzebue 
+IRA  
+(Government to Government 
+Meeting) 
+
+13148  ALT 5, CEF 1, GPE 1, ICL 3, MIT 3, MIT 4, 
+MIT 5, MIT 10, MIT 15, MIT 16, OSR 1, 
+OSR 3  
+
+Native Village of Point Lay 
+(Government to Government 
+Meeting) 
+
+13152  CEF 5, MIT 11, MMI 1, OSR 3, SRP 4  
+
+ 
+
+ 
+
+
+	Draft G2G CAR_Arctic EIS (042012).pdf
+	Cover Page
+	TABLE OF CONTENTS
+	LIST OF TABLES
+	LIST OF FIGURES
+	LIST OF APPENDICES
+	ACRONYMS AND ABBREVIATIONS
+	1.0 INTRODUCTION
+	2.0 BACKGROUND
+	3.0 THE ROLE OF CONSULTATION WITH INDIAN TRIBAL GOVERNMENTS
+	Table 1.  Government to Government Meetings, Locations and Dates
+
+	4.0  ANALYSIS OF SUBMISSIONS
+	Table 2.  Issue Categories for DEIS Comments
+	Figure 1:  Comments by Issue
+
+	5.0 STATEMENTS OF CONCERN
+	Alternatives (ALT)
+	Cumulative Effects (CEF)
+	Coordination and Compatibility (COR)
+	Data (DAT)
+	Editorial (EDI)
+	Physical Environment – General (GPE)
+	Social Environment – General (GSE)
+	Habitat (HAB)
+	Iñupiat Culture and Way of Life (ICL)
+	Mitigation Measures (MIT)
+	Marine Mammal and other Wildlife Impacts (MMI)
+	NEPA (NEP)
+	Oil Spill Risks (OSR)
+	Regulatory Compliance (REG)
+	Research, Monitoring, Evaluation Needs (RME)
+	Socioeconomic Impacts (SEI)
+	Subsistence Resource Protection (SRP)
+	Use of Traditional Knowledge (UTK)
+	Water and Air Quality (WAQ)
+
+	APPENDIX A
+
+
