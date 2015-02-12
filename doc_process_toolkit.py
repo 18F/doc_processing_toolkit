@@ -1,5 +1,10 @@
-import subprocess
+import glob
 import time
+import re
+import subprocess
+
+
+WORDS = re.compile('[A-Za-z]{3,}')
 
 
 def check_server(port=9998):
@@ -62,7 +67,32 @@ def stop_tika_server(port=9998):
         print("Server not running on port %s" % port)
 
 
+def convert_documents(doc_paths, port=9998):
+    """ Converts a document """
+
+    if type(doc_paths) == list:
+
+        for doc_path in doc_paths:
+            document = subprocess.Popen(
+                args=['nc localhost {0} < {1}'.format(port, doc_path)],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                shell=True)
+            yield document.stdout.read()
+
+
+def get_doc_length(document):
+    """ Return the length of a document -- note piping to wc might be faster"""
+
+    return len(tuple(WORDS.finditer(document)))
+
+
 if __name__ == '__main__':
+    # Testing the script
     stat_tika_server()
     check_server()
+    document_paths = glob.glob("test_docs/*/*.pdf")
+    documents = convert_documents(document_paths)
+    for document in documents:
+        print(get_doc_length(document))
     stop_tika_server()
