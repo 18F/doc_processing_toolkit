@@ -9,4 +9,6 @@ Python library to extract text from PDF, and default to OCR when text extraction
 
 ##### Running the script (currently)
 1. Download tika-app-1.7.jar from [Apache Tika](http://tika.apache.org/) in the main dir.
-2. Run using doc_process_toolkit.py
+2. `brew install ghostscripts`
+3. `brew install tesseract`
+4. Run using doc_process_toolkit.py
