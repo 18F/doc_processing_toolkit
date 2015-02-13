@@ -3,3 +3,4 @@ tika-app-1.7.jar
 research files/
 *.tiff
 *_new.txt
+config.py

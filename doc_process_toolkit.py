@@ -2,6 +2,8 @@ import glob
 import time
 import re
 import subprocess
+import tinys3
+import config
 
 WORDS = re.compile('[A-Za-z]{3,}')
 
@@ -48,7 +50,8 @@ def stat_tika_server(port=9998):
         print("Process already running on port %s" % port)
         return
     subprocess.Popen(
-        args=['java -jar tika-app-1.7.jar --server --text --port %s' % port],
+        args=['java -jar {0} --server --text --port {1}'.format(
+            config.TIKA_PATH, port)],
         shell=True)
     server_setup_timer(port)
 
@@ -126,6 +129,13 @@ def get_doc_length(document):
     return len(tuple(WORDS.finditer(document)))
 
 
+def upload_to_s3(doc_path):
+    """ Upload a single document to AWS S3"""
+
+    conn = tinys3.Connection(config.S3_ACCESS_KEY, config.S3_SECRET_KEY)
+    with open(doc_path, 'rb') as doc:
+        conn.upload(doc_path, doc, config.BUCKET)
+
 if __name__ == '__main__':
 
     """
@@ -140,9 +150,10 @@ if __name__ == '__main__':
 
     stop_tika_server()
     """
-
+    """
     # Testing the script for pdf to image to txt
     document_paths = glob.glob("test_docs/*/*.pdf")[0:1]
     for doc_path in document_paths:
         img_path = convert_to_img(doc_path)
         convert_img_to_text(img_path)
+    """

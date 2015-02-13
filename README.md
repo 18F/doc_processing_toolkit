@@ -12,3 +12,4 @@ Python library to extract text from PDF, and default to OCR when text extraction
 2. `brew install ghostscripts`
 3. `brew install tesseract`
 4. Run using doc_process_toolkit.py
+
