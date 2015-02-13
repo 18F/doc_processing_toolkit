@@ -4,3 +4,4 @@ research files/
 *.tiff
 *_new.txt
 config.py
+__pycache__

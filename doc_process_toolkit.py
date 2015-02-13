@@ -129,12 +129,19 @@ def get_doc_length(document):
     return len(tuple(WORDS.finditer(document)))
 
 
-def upload_to_s3(doc_path):
+def upload_to_s3(doc_path, conn):
     """ Upload a single document to AWS S3"""
 
-    conn = tinys3.Connection(config.S3_ACCESS_KEY, config.S3_SECRET_KEY)
     with open(doc_path, 'rb') as doc:
         conn.upload(doc_path, doc, config.BUCKET)
+        print("uploaded %s" % doc_path)
+
+
+def start_connection():
+    """ Starts tinys3 object to connect to S3 """
+
+    return tinys3.Connection(config.S3_ACCESS_KEY, config.S3_SECRET_KEY)
+
 
 if __name__ == '__main__':
 
@@ -157,3 +164,8 @@ if __name__ == '__main__':
         img_path = convert_to_img(doc_path)
         convert_img_to_text(img_path)
     """
+
+    conn = start_connection()
+    document_paths = glob.glob("test_docs/*/*.pdf")[3:4]
+    for doc_path in document_paths:
+        upload_to_s3(doc_path, conn=conn)
