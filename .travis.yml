@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.4"
+install:
+  - pip install nose
+  - pip install coveralls
+script:
+  - nosetests --with-coverage
+after_success:
+  - coveralls

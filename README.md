@@ -1,5 +1,7 @@
 ### Document Processing Toolkit
 
+[![Coverage Status](https://coveralls.io/repos/18F/doc_processing_toolkit/badge.png)](https://coveralls.io/r/18F/doc_processing_toolkit)
+
 ##### About
 Python library to extract text from PDF, and default to OCR when text extraction fails.
 

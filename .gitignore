@@ -7,3 +7,5 @@ research files/
 config.py
 __pycache__
 test_docs/
+*.pyc
+.coverage
