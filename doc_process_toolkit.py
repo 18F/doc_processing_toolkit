@@ -17,6 +17,20 @@ def get_doc_length(doc_text):
     return len(tuple(WORDS.finditer(doc_text)))
 
 
+def check_for_text(doc_path):
+    """
+    Using `pdffonts` returns True if document has fonts, which in essence
+    means it has text
+    """
+    pdffonts_output = subprocess.Popen(
+        ['pdffonts %s' % doc_path],
+        shell=True,
+        stdout=subprocess.PIPE,
+    )
+    if pdffonts_output.communicate()[0].decode("utf-8").count("\n") > 2:
+        return True
+
+
 def save_text(document, export_path=None):
     """ Reads document text and saves it to specified export path """
 
@@ -77,9 +91,16 @@ def process_documents(glob_path, port=9998):
     """
 
     for doc_path in glob.iglob(glob_path):
-        doc = pdf_to_text(doc_path=doc_path, port=port)
-        doc_text = doc.stdout.read().decode('utf-8')
-        if get_doc_length(doc_text) > 10:
+        extraction_succeeded = None
+        # Check if the document has text
+        if check_for_text(doc_path):
+            doc = pdf_to_text(doc_path=doc_path, port=port)
+            doc_text = doc.stdout.read().decode('utf-8')
+            # Check if text extraction succeeded
+            if get_doc_length(doc_text) > 10:
+                extraction_succeeded = True
+
+        if extraction_succeeded:
             save_text(doc_text, doc_path.replace(".pdf", ".txt"))
         else:
             img_path = pdf_to_img(doc_path)
