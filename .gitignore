@@ -1,3 +1,4 @@
+utils.py
 *.DS_Store
 tika-app-1.7.jar
 research files/
@@ -5,3 +6,6 @@ research files/
 *_new.txt
 config.py
 __pycache__
+test_docs/
+*.pyc
+.coverage

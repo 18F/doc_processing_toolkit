@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.4"
+before_install:
+    sudo apt-get install poppler-utils
+install:
+  - pip install nose
+  - pip install coveralls
+script:
+  - nosetests --with-coverage
+after_success:
+  - coveralls
