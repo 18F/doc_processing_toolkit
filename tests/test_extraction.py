@@ -1,5 +1,5 @@
 import unittest
-import doc_process_toolkit as dpt
+from textextraction import doc_process_toolkit as dpt
 
 
 class TestDocProcessToolkit(unittest.TestCase):
@@ -21,10 +21,10 @@ class TestDocProcessToolkit(unittest.TestCase):
         Check if check_for_text returns True when document contains text
         """
 
-        doc_path = "fixtures/record_text.pdf"
+        doc_path = "tests/fixtures/record_text.pdf"
         self.assertTrue(dpt.check_for_text(doc_path))
 
-        doc_path = "fixtures/record_no_text.pdf"
+        doc_path = "tests/fixtures/record_no_text.pdf"
         self.assertFalse(dpt.check_for_text(doc_path))
 
 if __name__ == '__main__':
