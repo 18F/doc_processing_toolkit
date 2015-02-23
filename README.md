@@ -20,3 +20,11 @@ These script assume that Apache Tika server is running in text mode.
 Start Tika Server
 `java -jar tika-app-1.7.jar --server --text --port 9998`
 
+In Python script
+```python
+import doc_process_toolkit
+# To convert all pdfs
+doc_process_toolkit.process_documents("<<Document directory>>")
+# To convert only pdfs that don't have a text file
+doc_process_toolkit.process_documents("<<Document directory>>", skip_finished=True)
+```

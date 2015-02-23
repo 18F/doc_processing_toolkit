@@ -1,5 +1,6 @@
 import glob
 import logging
+import os
 import re
 import subprocess
 
@@ -42,7 +43,7 @@ def img_to_text(img_path, export_path=None):
     """ Uses Tesseract OCR to convert tiff image to text file """
 
     if not export_path:
-        export_path = img_path.replace(".tiff", "_ocrd")
+        export_path = img_path.replace(".tiff", '')
 
     document = subprocess.Popen(
         args=['tesseract', img_path, export_path],
@@ -85,29 +86,33 @@ def pdf_to_text(doc_path, port=9998):
     return document
 
 
-def process_documents(glob_path, port=9998):
+def process_documents(glob_path, port=9998, skip_finished=False):
     """
     Converts pdfs to text and uses OCR if the initial attempt fails
     """
 
     for doc_path in glob.iglob(glob_path):
-        extraction_succeeded = None
-        # Check if the document has text
-        if check_for_text(doc_path):
-            doc = pdf_to_text(doc_path=doc_path, port=port)
-            doc_text = doc.stdout.read().decode('utf-8')
-            # Check if text extraction succeeded
-            if get_doc_length(doc_text) > 10:
-                extraction_succeeded = True
-
-        if extraction_succeeded:
-            save_text(doc_text, doc_path.replace(".pdf", ".txt"))
+        if os.path.exists(doc_path.replace('.pdf', '.txt')) and skip_finished:
+            logging.info("%s: has already been converted", doc_path)
         else:
-            img_path = pdf_to_img(doc_path)
-            img_to_text(img_path)
+            extraction_succeeded = None
+            # Check if the document has text
+            if check_for_text(doc_path):
+                doc = pdf_to_text(doc_path=doc_path, port=port)
+                doc_text = doc.stdout.read().decode('utf-8')
+                # Check if text extraction succeeded
+                if get_doc_length(doc_text) > 10:
+                    extraction_succeeded = True
+
+            if extraction_succeeded:
+                save_text(doc_text, doc_path.replace(".pdf", ".txt"))
+            else:
+                img_path = pdf_to_img(doc_path)
+                img_to_text(img_path)
+
 
 if __name__ == '__main__':
 
     # testing script
     logging.basicConfig(level=logging.INFO)
-    process_documents('test_docs/*/*.pdf')
+    process_documents('test_docs/*/*.pdf', skip_finished=True)
