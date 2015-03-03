@@ -22,10 +22,10 @@ class TestDocProcessToolkit(unittest.TestCase):
         """
 
         doc_path = "tests/fixtures/record_text.pdf"
-        self.assertTrue(dpt.check_for_text(doc_path))
+        self.assertTrue(dpt.check_for_text(doc_path, '.pdf'))
 
         doc_path = "tests/fixtures/record_no_text.pdf"
-        self.assertFalse(dpt.check_for_text(doc_path))
+        self.assertFalse(dpt.check_for_text(doc_path, '.pdf'))
 
 if __name__ == '__main__':
     unittest.main()
