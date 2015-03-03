@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/18F/doc_processing_toolkit/badge.png)](https://coveralls.io/r/18F/doc_processing_toolkit)
 
 ##### About
-Python library to extract text from PDF, and default to OCR when text extraction fails.
+Python library to extract text from any file type compatiable with [TIKA](http://tika.apache.org/). It defaults to OCR when text extraction of a PDF file fails.
 
 ##### Dependencies
 - [Apache Tika](http://tika.apache.org/)
@@ -23,8 +23,9 @@ Start Tika Server
 In Python script
 ```python
 import doc_process_toolkit
-# To convert all pdfs
-doc_process_toolkit.process_documents("<<Document directory>>")
-# To convert only pdfs that don't have a text file
-doc_process_toolkit.process_documents("<<Document directory>>", skip_finished=True)
+# To convert all PDF and XLS files
+doc_process_toolkit.process_documents(["glob path/*.pdf", "glob path/*.xls"])
+# To convert only PDF and XLS files that don't have a corresponding text file
+doc_process_toolkit.process_documents(
+    ["glob path/*.pdf", "glob path/*.xls"], skip_converted=True)
 ```
