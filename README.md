@@ -16,9 +16,10 @@ Python library to extract text from any file type compatiable with [TIKA](http:/
 3. `brew install tesseract` Ubuntu: `sudo apt-get install tesseract-ocr`
 
 ##### Usage
-These script assume that Apache Tika server is running in text mode.
-Start Tika Server
-`java -jar tika-app-1.7.jar --server --text --port 9998`
+These script assume that two instances of Tika server are running, one to extract meta data and the other to extract text.
+Starting Tika Servers
+`java -jar tika-app-1.7.jar --server --json --port 9998`
+`java -jar tika-app-1.7.jar --server --text --port 8887`
 
 In Python script
 ```python

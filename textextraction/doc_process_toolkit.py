@@ -86,18 +86,34 @@ def doc_to_text(doc_path, port=9998):
         args=['nc localhost {0} < {1}'.format(port, doc_path)],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
-        shell=True)
+        shell=True
+    )
     logging.info("%s converted to text from pdf", doc_path)
     return document
 
 
-def convert_documents(glob_path, skip_converted, port=9998):
+def extract_metadata(doc_path, extension, port=8887):
+    """
+    Extracts metadata using Tika into a json file
+    """
+
+    m_path = doc_path.replace(extension, '_metadata_.json')
+    subprocess.call(
+        args=['nc localhost {0} < {1} > {2}'.format(port, doc_path, m_path)],
+        shell=True
+    )
+
+
+def convert_documents(glob_path, skip_converted, text_port=9998,
+                      data_port=8887):
     """
     Converts pdfs to text and uses OCR if the initial attempt fails
     """
 
     for doc_path in glob.iglob(glob_path):
         extension = '.%s' % doc_path.split('.')[-1].lower()
+        extract_metadata(
+            doc_path=doc_path, extension=extension, port=data_port)
         if os.path.exists(doc_path.replace(extension, '.txt')) and \
                 skip_converted:
             logging.info("%s: has already been converted", doc_path)
@@ -105,7 +121,7 @@ def convert_documents(glob_path, skip_converted, port=9998):
             extraction_succeeded = None
             # Check if the document has text
             if check_for_text(doc_path, extension):
-                doc = doc_to_text(doc_path=doc_path, port=port)
+                doc = doc_to_text(doc_path=doc_path, port=text_port)
                 doc_text = doc.stdout.read().decode('utf-8')
                 # Check if text extraction succeeded
                 if get_doc_length(doc_text) > 10:
