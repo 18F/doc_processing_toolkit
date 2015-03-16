@@ -32,3 +32,16 @@ doc_process_toolkit.process_documents(["glob path/*.pdf", "glob path/*.xls"])
 doc_process_toolkit.process_documents(
     ["glob path/*.pdf", "glob path/*.xls"], skip_converted=True)
 ```
+
+##### Tests
+In order to run tests:
+1. All requirements must be installed
+2. Both Tika servers need to be running
+3. An env variable must be set to indicate that the system is ready
+`export ALL_INSTALLED=True`
+
+Tests are run with nose
+Installation
+`pip install nose`
+Running tests
+`nosetests`
