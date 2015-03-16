@@ -60,11 +60,10 @@ def img_to_text(img_path, export_path=None):
     return export_path
 
 
-def pdf_to_img(doc_path, export_path=None):
+def pdf_to_img(doc_path):
     """ Converts and saves pdf file to tiff image using Ghostscript"""
 
-    if not export_path:
-        export_path = doc_path.replace(".pdf", ".tiff")
+    export_path = doc_path.replace(".pdf", ".tiff")
 
     args = 'gs -dNOPAUSE -dBATCH -sDEVICE=tiffg4 -sOutputFile={0} {1}'
     args = args.format(export_path, doc_path)
@@ -97,7 +96,7 @@ def extract_metadata(doc_path, extension, port=8887):
     Extracts metadata using Tika into a json file
     """
 
-    m_path = doc_path.replace(extension, '_metadata_.json')
+    m_path = doc_path.replace(extension, '_metadata.json')
     subprocess.call(
         args=['nc localhost {0} < {1} > {2}'.format(port, doc_path, m_path)],
         shell=True

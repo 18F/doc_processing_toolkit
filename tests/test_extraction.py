@@ -1,8 +1,39 @@
-import unittest
+import os
+import time
+from unittest import TestCase, skipUnless, main
 from textextraction import doc_process_toolkit as dpt
 
+ALL_INSTALLED = os.getenv("ALL_INSTALLED")
 
-class TestDocProcessToolkit(unittest.TestCase):
+LOCAL_PATH = os.path.dirname(os.path.realpath(__file__))
+
+
+def file_itterator(base_files, extensions):
+    """
+    Itterates through a list of base_files with each extension given
+    """
+    local_path = os.path.dirname(os.path.realpath(__file__))
+    for base_file in base_files:
+        for extension in extensions:
+            yield local_path + '/fixtures/' + base_file + extension
+
+
+class TestDocProcessToolkit(TestCase):
+
+    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
+    def tearDown(self):
+        """
+        Removes file created during the test
+        """
+        items_to_delete = [
+            'record_text',
+            'record_no_text',
+            'excel_spreadsheet'
+        ]
+        extensions = ['_metadata.json', '.tiff', '.txt']
+        for item_path in file_itterator(items_to_delete, extensions):
+            if os.path.isfile(item_path):
+                os.remove(item_path)
 
     def test_get_doc_length(self):
         """
@@ -27,5 +58,119 @@ class TestDocProcessToolkit(unittest.TestCase):
         doc_path = "tests/fixtures/record_no_text.pdf"
         self.assertFalse(dpt.check_for_text(doc_path, '.pdf'))
 
+    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
+    def test_doc_to_text(self):
+        """
+        Check if document text is properly extracted, when possible
+        """
+        doc = dpt.doc_to_text(LOCAL_PATH + '/fixtures/record_text.pdf')
+
+        self.assertTrue(
+            'Cupcake ipsum dolor sit' in doc.stdout.read().decode('utf-8'))
+        doc = dpt.doc_to_text(LOCAL_PATH + '/fixtures/excel_spreadsheet.xlsx')
+        self.assertTrue(
+            'in a list of numbers' in doc.stdout.read().decode('utf-8'))
+
+        doc = dpt.doc_to_text(LOCAL_PATH + '/fixtures/record_no_text.pdf')
+        self.assertTrue('' in doc.stdout.read().decode('utf-8'))
+
+    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
+    def test_pdf_to_img_and_img_to_text(self):
+        """
+        Check if pdf docs can be converted to images and then to text
+        """
+        dpt.pdf_to_img(LOCAL_PATH + '/fixtures/record_no_text.pdf')
+        dpt.img_to_text(LOCAL_PATH + '/fixtures/record_no_text.tiff')
+        self.assertTrue(
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.txt'))
+        # Currently, this isn't working with the example pdf
+
+    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
+    def test_extract_metadata(self):
+        """
+        Check if meta data is properly created
+        """
+
+        dpt.extract_metadata(
+            LOCAL_PATH + '/fixtures/record_text.pdf', '.pdf')
+        self.assertTrue(
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_text_metadata.json'))
+
+        dpt.extract_metadata(
+            LOCAL_PATH + '/fixtures/excel_spreadsheet.xlsx', '.xlsx')
+        self.assertTrue(os.path.isfile(
+            LOCAL_PATH + '/fixtures/excel_spreadsheet_metadata.json'))
+
+    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
+    def test_process_documents_run_one(self):
+        """
+        Check if documents are correctly extracted and skip_converted
+        functions as expected.
+        """
+        # Test first run
+        dir_path = "/fixtures/*.pdf"
+        glob_path = LOCAL_PATH + dir_path
+        dpt.convert_documents(glob_path, skip_converted=False)
+
+        files = [
+            'record_text',
+            'record_no_text',
+        ]
+        extensions = ['_metadata.json', '.txt']
+        for item_path in file_itterator(files, extensions):
+            self.assertTrue(os.path.isfile(item_path))
+
+        # File with text does not undergo transformation
+        self.assertFalse(
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.tiff'))
+        self.assertTrue(
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
+
+        # Save creation times
+        text_time = time.ctime(os.path.getctime(
+            LOCAL_PATH + '/fixtures/record_text.txt'))
+        no_text_time = time.ctime(os.path.getctime(
+            LOCAL_PATH + '/fixtures/record_no_text.txt'))
+
+        # Check if new files were created when skip converted is True
+        dpt.convert_documents(glob_path, skip_converted=True)
+        text_time_2 = time.ctime(os.path.getctime(
+            LOCAL_PATH + '/fixtures/record_text.txt'))
+        no_text_time_2 = time.ctime(os.path.getctime(
+            LOCAL_PATH + '/fixtures/record_no_text.txt'))
+
+        self.assertEqual(text_time, text_time_2)
+        self.assertEqual(no_text_time, no_text_time_2)
+
+        # Check if new files are created when skip converted is False
+        dpt.convert_documents(glob_path, skip_converted=False)
+        text_time_2 = time.ctime(os.path.getctime(
+            LOCAL_PATH + '/fixtures/record_text.txt'))
+        no_text_time_2 = time.ctime(os.path.getctime(
+            LOCAL_PATH + '/fixtures/record_no_text.txt'))
+
+        self.assertNotEqual(text_time, text_time_2)
+        self.assertNotEqual(no_text_time, no_text_time_2)
+
+    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
+    def test_process_documents(self):
+        """
+        Check that the process document iterator works with multiple file
+        types
+        """
+
+        dpt.process_documents([
+            LOCAL_PATH + "/fixtures/*.pdf",
+            LOCAL_PATH + "/fixtures/*.xlsx"])
+
+        self.assertTrue(
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.txt'))
+        self.assertTrue(os.path.isfile(
+            LOCAL_PATH + '/fixtures/record_text_metadata.json'))
+        self.assertTrue(
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.txt'))
+        self.assertTrue(os.path.isfile(
+            LOCAL_PATH + '/fixtures/record_no_text_metadata.json'))
+
 if __name__ == '__main__':
-    unittest.main()
+    main()
