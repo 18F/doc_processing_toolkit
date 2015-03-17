@@ -8,9 +8,9 @@ ALL_INSTALLED = os.getenv("ALL_INSTALLED")
 LOCAL_PATH = os.path.dirname(os.path.realpath(__file__))
 
 
-def file_itterator(base_files, extensions):
+def file_iterator(base_files, extensions):
     """
-    Itterates through a list of base_files with each extension given
+    Iterates through a list of base_files with each extension given
     """
     local_path = os.path.dirname(os.path.realpath(__file__))
     for base_file in base_files:
@@ -31,7 +31,7 @@ class TestDocProcessToolkit(TestCase):
             'excel_spreadsheet'
         ]
         extensions = ['_metadata.json', '.tiff', '.txt']
-        for item_path in file_itterator(items_to_delete, extensions):
+        for item_path in file_iterator(items_to_delete, extensions):
             if os.path.isfile(item_path):
                 os.remove(item_path)
 
@@ -118,7 +118,7 @@ class TestDocProcessToolkit(TestCase):
             'record_no_text',
         ]
         extensions = ['_metadata.json', '.txt']
-        for item_path in file_itterator(files, extensions):
+        for item_path in file_iterator(files, extensions):
             self.assertTrue(os.path.isfile(item_path))
 
         # File with text does not undergo transformation
