@@ -104,13 +104,14 @@ class TestDocProcessToolkit(TestCase):
     @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_process_documents_run_one(self):
         """
-        Check if documents are correctly extracted and skip_converted
-        functions as expected.
+        Check if PDFTextExtractor correctly extracts text from PDF document and
+        skip_converted parameter correctly skips documents that have
+        been converted
         """
         # Test first run
         dir_path = "/fixtures/*.pdf"
         glob_path = LOCAL_PATH + dir_path
-        dpt.convert_documents(glob_path, skip_converted=False)
+        dpt.PDFTextExtractor(glob_path, skip_converted=False)
 
         files = [
             'record_text',
@@ -127,27 +128,27 @@ class TestDocProcessToolkit(TestCase):
             os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
 
         # Save creation times
-        text_time = time.ctime(os.path.getctime(
-            LOCAL_PATH + '/fixtures/record_text.txt'))
-        no_text_time = time.ctime(os.path.getctime(
-            LOCAL_PATH + '/fixtures/record_no_text.txt'))
+        text_time = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/record_text.txt')
+        no_text_time = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/record_no_text.txt')
 
         # Check if new files were created when skip converted is True
-        dpt.convert_documents(glob_path, skip_converted=True)
-        text_time_2 = time.ctime(os.path.getctime(
-            LOCAL_PATH + '/fixtures/record_text.txt'))
-        no_text_time_2 = time.ctime(os.path.getctime(
-            LOCAL_PATH + '/fixtures/record_no_text.txt'))
+        dpt.PDFTextExtractor(glob_path, skip_converted=True)
+        text_time_2 = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/record_text.txt')
+        no_text_time_2 = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/record_no_text.txt')
 
         self.assertEqual(text_time, text_time_2)
         self.assertEqual(no_text_time, no_text_time_2)
 
         # Check if new files are created when skip converted is False
-        dpt.convert_documents(glob_path, skip_converted=False)
-        text_time_2 = time.ctime(os.path.getctime(
-            LOCAL_PATH + '/fixtures/record_text.txt'))
-        no_text_time_2 = time.ctime(os.path.getctime(
-            LOCAL_PATH + '/fixtures/record_no_text.txt'))
+        dpt.PDFTextExtractor(glob_path, skip_converted=False)
+        text_time_2 = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/record_text.txt')
+        no_text_time_2 = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/record_no_text.txt')
 
         self.assertNotEqual(text_time, text_time_2)
         self.assertNotEqual(no_text_time, no_text_time_2)
@@ -155,22 +156,40 @@ class TestDocProcessToolkit(TestCase):
     @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_process_documents(self):
         """
-        Check that the process document iterator works with multiple file
-        types
+        Check that the DocTextExtractor function extract documents properly and
+        skip_converted parameter correctly skips documents that have
+        been converted
         """
 
-        dpt.process_documents([
-            LOCAL_PATH + "/fixtures/*.pdf",
-            LOCAL_PATH + "/fixtures/*.xlsx"])
+        # Test first run
+        dpt.DocTextExtractor(LOCAL_PATH + "/fixtures/*.xlsx")
+        self.assertTrue(
+            os.path.isfile(LOCAL_PATH + '/fixtures/excel_spreadsheet.txt'))
+        self.assertTrue(os.path.isfile(
+            LOCAL_PATH + '/fixtures/excel_spreadsheet_metadata.json'))
+        with open(LOCAL_PATH + '/fixtures/excel_spreadsheet.txt', 'r') as f:
+            data = f.read()
+        self.assertTrue('Adds the cells' in data)
 
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.txt'))
-        self.assertTrue(os.path.isfile(
-            LOCAL_PATH + '/fixtures/record_text_metadata.json'))
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.txt'))
-        self.assertTrue(os.path.isfile(
-            LOCAL_PATH + '/fixtures/record_no_text_metadata.json'))
+        # Save time
+        stats_1 = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/excel_spreadsheet.txt')
+
+        time.sleep(3)
+        # Test second run
+        dpt.DocTextExtractor(
+            LOCAL_PATH + "/fixtures/*.xlsx", skip_converted=False)
+        stats_2 = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/excel_spreadsheet.txt')
+        self.assertNotEqual(stats_1, stats_2)
+
+        # Test thrid run
+        dpt.DocTextExtractor(
+            LOCAL_PATH + "/fixtures/*.xlsx", skip_converted=True)
+        stats_3 = os.path.getmtime(
+            LOCAL_PATH + '/fixtures/excel_spreadsheet.txt')
+        self.assertEqual(stats_2, stats_3)
+
 
 if __name__ == '__main__':
     main()

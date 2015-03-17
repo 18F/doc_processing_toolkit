@@ -103,21 +103,44 @@ def extract_metadata(doc_path, extension, port=8887):
     )
 
 
-def convert_documents(glob_path, skip_converted, text_port=9998,
-                      data_port=8887):
+def DocTextExtractor(glob_path, skip_converted=True,
+                     text_port=9998, data_port=8887):
     """
-    Converts pdfs to text and uses OCR if the initial attempt fails
+    Converts and produces metadata for any document type compatiable with
+    Tika, (http://tika.apache.org/1.7/formats.html) but does not check
+    if extraction produces text.
     """
-
     for doc_path in glob.iglob(glob_path):
-        extension = '.%s' % doc_path.split('.')[-1].lower()
-        extract_metadata(
-            doc_path=doc_path, extension=extension, port=data_port)
+        root, extension = os.path.splitext(doc_path)
         if os.path.exists(doc_path.replace(extension, '.txt')) and \
                 skip_converted:
             logging.info("%s: has already been converted", doc_path)
         else:
-            extraction_succeeded = None
+            # Extract Metadata
+            extract_metadata(
+                doc_path=doc_path, extension=extension, port=data_port)
+            doc = doc_to_text(doc_path=doc_path, port=text_port)
+            doc_text = doc.stdout.read().decode('utf-8')
+            save_text(doc_text, doc_path.replace(extension, ".txt"))
+
+
+def PDFTextExtractor(glob_path, skip_converted=True,
+                     text_port=9998, data_port=8887):
+    """
+    Produces metadata and converts pdfs to text. Uses OCR if the initial
+    attempt fails
+    """
+
+    for doc_path in glob.iglob(glob_path):
+        root, extension = os.path.splitext(doc_path)
+        if os.path.exists(doc_path.replace(extension, '.txt')) and \
+                skip_converted:
+            logging.info("%s: has already been converted", doc_path)
+        else:
+            extraction_succeeded = False
+            # Extract Metadata
+            extract_metadata(
+                doc_path=doc_path, extension=extension, port=data_port)
             # Check if the document has text
             if check_for_text(doc_path, extension):
                 doc = doc_to_text(doc_path=doc_path, port=text_port)
@@ -125,26 +148,9 @@ def convert_documents(glob_path, skip_converted, text_port=9998,
                 # Check if text extraction succeeded
                 if get_doc_length(doc_text) > 10:
                     extraction_succeeded = True
-            # If extraction fails and doc is .pdf, use ORC
-            if not extraction_succeeded and extension == '.pdf':
+            # If extraction fails use ORC
+            if extraction_succeeded:
+                save_text(doc_text, doc_path.replace(extension, ".txt"))
+            else:
                 img_path = pdf_to_img(doc_path)
                 img_to_text(img_path)
-            else:
-                save_text(doc_text, doc_path.replace(extension, ".txt"))
-
-
-def process_documents(glob_path_list, skip_converted=True):
-    """
-    Given a list of glob paths, loops through each and converts
-    documents to text
-    """
-    for glob_path in glob_path_list:
-        convert_documents(glob_path=glob_path, skip_converted=skip_converted)
-
-if __name__ == '__main__':
-
-    # testing script
-    logging.basicConfig(level=logging.INFO)
-    process_documents(
-        ['/test_docs/*/*.pdf' 'test_docs/*/*.xls'],
-        skip_converted=True)
