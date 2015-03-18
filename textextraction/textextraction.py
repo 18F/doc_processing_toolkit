@@ -1,4 +1,3 @@
-import glob
 import logging
 import os
 import re
@@ -12,11 +11,10 @@ Tesseract. They are intended to simplify converting pdf files into usable text.
 
 class TextExtraction:
 
-    def __init__(self, doc_path, root, ext, text_port=9998, data_port=8887):
+    def __init__(self, doc_path, text_port=9998, data_port=8887):
 
         self.doc_path = doc_path
-        self.root = root
-        self.extension = ext
+        self.root, self.extension = os.path.splitext(doc_path)
         self.text_port = text_port
         self.data_port = data_port
 
@@ -41,19 +39,6 @@ class TextExtraction:
         logging.info("%s converted to text from pdf", self.doc_path)
         return document
 
-    def extract_text(self):
-        """
-        Extracts metadata using Tika into a json file
-        """
-
-        m_path = self.root + '_metadata.json'
-        subprocess.call(
-            args=[
-                'nc localhost {0} < {1} > {2}'.format(
-                    self.data_port, self.doc_path, m_path)],
-            shell=True
-        )
-
     def extract_metadata(self):
         """
         Extracts metadata using Tika into a json file
@@ -72,17 +57,17 @@ class TextExtraction:
         with Tika, (http://tika.apache.org/1.7/formats.html) but does not
         check if extraction produces text.
         """
-
+        self.extract_metadata()
         self.save_text(self.doc_to_text().stdout.read().decode('utf-8'))
 
 
 class PDFTextExtraction(TextExtraction):
 
-    def __init__(self, doc_path, root, ext, text_port=9998, data_port=8887,
+    def __init__(self, doc_path, text_port=9998, data_port=8887,
                  word_threshold=10):
 
         super(self.__class__, self).__init__(
-            doc_path, root, ext, text_port, data_port)
+            doc_path, text_port, data_port)
         self.WORDS = re.compile('[A-Za-z]{3,}')
         self.word_threshold = word_threshold
 
@@ -143,6 +128,7 @@ class PDFTextExtraction(TextExtraction):
         initial attempt fails.
         """
 
+        self.extract_metadata()
         needs_ocr = False
         # Determine if PDF has text
         if not self.has_text():
@@ -159,15 +145,15 @@ class PDFTextExtraction(TextExtraction):
             self.img_to_text()
 
 
-def textextractor(glob_path, force_convert=False):
-
-    for doc_path in glob.glob(glob_path):
-        root, extension = os.path.splitext(doc_path)
-        if not os.path.exists(root + ".txt") or force_convert:
-
-            if extension == '.pdf':
-                extractor = PDFTextExtraction(doc_path, root, extension)
-            else:
-                extractor = PDFTextExtraction(doc_path, root, extension)
-
-            extractor.extract()
+def textextractor(doc_path, force_convert=False):
+    """
+    Checks if document has been converted and sends file to appropriate
+    converter
+    """
+    root, extension = os.path.splitext(doc_path)
+    if not os.path.exists(root + ".txt") or force_convert:
+        if extension == '.pdf':
+            extractor = PDFTextExtraction(doc_path)
+        else:
+            extractor = TextExtraction(doc_path)
+        extractor.extract()
