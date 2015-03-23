@@ -177,6 +177,7 @@ class TestInterface(TestCase):
         """
         delete_files()
 
+    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_textextractor(self):
         """
         Verify that text extractor sends file to correct extractor
