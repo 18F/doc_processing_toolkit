@@ -1,7 +1,6 @@
 import os
 from unittest import TestCase, skipUnless, main
-from textextraction.textextraction import (TextExtraction, PDFTextExtraction,
-                                           textextractor)
+from textextraction.extractors import TextExtraction, PDFTextExtraction
 
 ALL_INSTALLED = os.getenv("ALL_INSTALLED")
 
@@ -168,41 +167,6 @@ class TestPDFTextExtraction(TestCase):
             os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
         self.assertTrue(os.path.isfile(
             LOCAL_PATH + '/fixtures/record_no_text_metadata.json'))
-
-
-class TestInterface(TestCase):
-    def tearDown(self):
-        """
-        Removes file created during the test
-        """
-        delete_files()
-
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
-    def test_textextractor(self):
-        """
-        Verify that text extractor sends file to correct extractor
-        """
-        docs_to_convert = [
-            'record_text.pdf',
-            'record_no_text.pdf',
-            'record_some_text.pdf',
-            'excel_spreadsheet.xlsx'
-        ]
-        for doc_path in file_iterator(docs_to_convert):
-            textextractor(doc_path)
-            root, extension = os.path.splitext(doc_path)
-            self.assertTrue(os.path.isfile(root + '.txt'))
-            self.assertTrue(os.path.isfile(root + '_metadata.json'))
-
-        # Check that only doc with no text used OCR
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_some_text.tiff'))
-        self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.tiff'))
-        self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/excel_spreadsheet.tiff'))
 
 if __name__ == '__main__':
     main()

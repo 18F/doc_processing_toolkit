@@ -9,7 +9,7 @@ Python library to extract text from any file type compatiable with [TIKA](http:/
 - [Apache Tika](http://tika.apache.org/)
 - [Ghostscript](http://www.ghostscript.com/)
 - [Tesseract](https://code.google.com/p/tesseract-ocr/)
-- [Xpdf]()
+- [Xpdf](http://www.foolabs.com/xpdf/)
 
 ##### Installation
 1. Download tika-app-1.7.jar from [Apache Tika](http://tika.apache.org/)
@@ -25,12 +25,8 @@ Starting Tika Servers
 
 In Python script
 ```python
-import doc_process_toolkit
-# To convert all PDF and XLS files
-doc_process_toolkit.process_documents(["glob path/*.pdf", "glob path/*.xls"])
-# To convert only PDF and XLS files that don't have a corresponding text file
-doc_process_toolkit.process_documents(
-    ["glob path/*.pdf", "glob path/*.xls"], skip_converted=True)
+from textextraction.threader import AsyncConvert
+AsyncConvert.extractor_factory(file_iterator=iglob("test_docs/*/*.pdf"))
 ```
 
 ##### Tests

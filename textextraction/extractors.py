@@ -143,17 +143,3 @@ class PDFTextExtraction(TextExtraction):
         if needs_ocr:
             self.pdf_to_img()
             self.img_to_text()
-
-
-def textextractor(doc_path, force_convert=False):
-    """
-    Checks if document has been converted and sends file to appropriate
-    converter
-    """
-    root, extension = os.path.splitext(doc_path)
-    if not os.path.exists(root + ".txt") or force_convert:
-        if extension == '.pdf':
-            extractor = PDFTextExtraction(doc_path)
-        else:
-            extractor = TextExtraction(doc_path)
-        extractor.extract()
