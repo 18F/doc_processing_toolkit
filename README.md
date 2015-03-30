@@ -25,8 +25,8 @@ Starting Tika Servers
 
 In Python script
 ```python
-from textextraction.threader import AsyncConvert
-AsyncConvert.extractor_factory(file_iterator=iglob("test_docs/*/*.pdf"))
+from textextraction.extractors import textextractor
+textextractor(doc_path=doc_path, force_convert=force_convert)
 ```
 
 ##### Tests
