@@ -2,32 +2,7 @@ import os
 import json
 import logging
 from celery import group
-from tasks import convert_file
-
-"""
-This uses threading, which allow multiple instances to textextractor to
-run in parallel.
-
-Running:
-
-# Server for extracting metadata
-java -jar tika-app-1.7.jar --server --json --port 8887
-
-# Server for extracting text
-java -jar tika-app-1.7.jar --server --text --port 9998
-
-# Redis for caching tasks
-redis-server
-
-# Celery workers for distributing tasks
-celery -A tasks worker --loglevel=INFO  -n worker1.%h
-celery -A tasks worker --loglevel=INFO  -n worker2.%h
-celery -A tasks worker --loglevel=INFO  -n worker3.%h
-etc...
-
-# Running script
-python example_convert_docs.py
-"""
+from sample_celery_tasks import convert_file
 
 
 def extractor_factory(file_iterator, force_convert=False):
