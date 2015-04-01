@@ -1,7 +1,7 @@
 import os
 
 from unittest import TestCase, main
-from textextraction.textextraction import (TextExtraction, PDFTextExtraction,
+from textextraction.extractors import (TextExtraction, PDFTextExtraction,
                                            text_extractor)
 
 LOCAL_PATH = os.path.dirname(os.path.realpath(__file__))
