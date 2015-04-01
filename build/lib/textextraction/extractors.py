@@ -4,12 +4,14 @@ import re
 import subprocess
 
 """
-The functions below are minimal Python wrappers Ghostscript, Tika, and
+The functions below are minimal Python wrappers around Ghostscript, Tika, and
 Tesseract. They are intended to simplify converting pdf files into usable text.
 """
 
 
 class TextExtraction:
+    """ The TextExtraction class contains functions for extracting and saving
+    metadata and text from all files compatible with Apache Tika"""
 
     def __init__(self, doc_path, text_port=9998, data_port=8887):
 
@@ -62,12 +64,14 @@ class TextExtraction:
 
 
 class PDFTextExtraction(TextExtraction):
+    """ PDFTextExtraction adds OCR functionality to TextExtraction. The ORC
+    functionality is triggered only if a PDF document is not responsive or
+    if Tika fails to extract text """
 
     def __init__(self, doc_path, text_port=9998, data_port=8887,
                  word_threshold=10):
 
-        super(self.__class__, self).__init__(
-            doc_path, text_port, data_port)
+        super(self.__class__, self).__init__(doc_path, text_port, data_port)
         self.WORDS = re.compile('[A-Za-z]{3,}')
         self.word_threshold = word_threshold
 
@@ -145,7 +149,7 @@ class PDFTextExtraction(TextExtraction):
             self.img_to_text()
 
 
-def textextractor(doc_path, force_convert=False):
+def text_extractor(doc_path, force_convert=False):
     """
     Checks if document has been converted and sends file to appropriate
     converter
