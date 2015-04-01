@@ -80,14 +80,14 @@ class PrepareDocs:
 
             k = Key(self.s3_bucket)
             k.key = doc_location
-            k.set_contents_from_filename(doc_location)
+            k.set_contents_from_filename(doc_location, replace=True)
 
             # Upload text
             text_location = os.path.join(root, base_file + ".txt")
             if os.path.exists(text_location):
                 k = Key(self.s3_bucket)
                 k.key = text_location
-                k.set_contents_from_filename(text_location)
+                k.set_contents_from_filename(text_location, replace=True)
 
         else:
             f_dir = os.path.split(root)[-1]
@@ -103,7 +103,7 @@ class PrepareDocs:
         if self.s3_bucket:
             k = Key(self.s3_bucket)
             k.key = manifest_location
-            k.set_contents_from_filename(manifest_location)
+            k.set_contents_from_filename(manifest_location, replace=True)
         else:
             with open(manifest_location, 'w') as f:
                 f.write(yaml.dump(
