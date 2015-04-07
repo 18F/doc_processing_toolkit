@@ -1,9 +1,8 @@
 import os
-from unittest import TestCase, skipUnless, main
-from textextraction.extractors import (TextExtraction, PDFTextExtraction,
-                                       textextractor)
 
-ALL_INSTALLED = os.getenv("ALL_INSTALLED")
+from unittest import TestCase, main
+from textextraction.extractors import (TextExtraction, PDFTextExtraction,
+                                       text_extractor)
 
 LOCAL_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -36,14 +35,12 @@ def delete_files():
 
 class TestTextExtraction(TestCase):
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def tearDown(self):
         """
         Removes file created during the test
         """
         delete_files()
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_extract_metadata(self):
         """
         Check if meta data is properly created
@@ -55,7 +52,6 @@ class TestTextExtraction(TestCase):
         self.assertTrue(
             os.path.isfile(LOCAL_PATH + '/fixtures/record_text_metadata.json'))
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_doc_to_text(self):
         """
         Check if document text is properly extracted, when possible
@@ -71,7 +67,6 @@ class TestTextExtraction(TestCase):
         doc = extractor.doc_to_text()
         self.assertEqual(doc.stdout.read().decode('utf-8').strip('\n'), '')
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_extract(self):
         """
         Check if TextExtractor correctly extracts text from xlsx and pdf
@@ -92,7 +87,6 @@ class TestTextExtraction(TestCase):
 
 class TestPDFTextExtraction(TestCase):
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def tearDown(self):
         """
         Removes file created during the test
@@ -126,7 +120,6 @@ class TestPDFTextExtraction(TestCase):
         extractor = PDFTextExtraction(doc_path=doc_path)
         self.assertFalse(extractor.has_text())
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_pdf_to_img_and_img_to_text(self):
         """
         Check if pdf docs can be converted to images and then to text
@@ -137,9 +130,7 @@ class TestPDFTextExtraction(TestCase):
         extractor.img_to_text()
         self.assertTrue(
             os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.txt'))
-        # Currently, this isn't working with the example pdf
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def test_extract(self):
         """
         Check if PDFTextExtractor correctly extracts text from PDF document
@@ -172,15 +163,13 @@ class TestPDFTextExtraction(TestCase):
 
 class Testtextextractor(TestCase):
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
     def tearDown(self):
         """
         Removes file created during the test
         """
         delete_files()
 
-    @skipUnless(ALL_INSTALLED == "True", 'Installation is ready')
-    def test_textextractor(self):
+    def test_text_extractor(self):
         """
         Verify that the threader sends file to correct extractor
         """
@@ -193,8 +182,7 @@ class Testtextextractor(TestCase):
 
         # Convert and check if conversions exist
         for doc_path in file_iterator(docs_to_convert):
-            textextractor(doc_path)
-
+            text_extractor(doc_path)
             root, extension = os.path.splitext(doc_path)
             self.assertTrue(os.path.isfile(root + '.txt'))
             self.assertTrue(os.path.isfile(root + '_metadata.json'))
