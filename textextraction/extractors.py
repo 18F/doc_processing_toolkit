@@ -13,14 +13,14 @@ class TextExtraction:
     """ The TextExtraction class contains functions for extracting and saving
     metadata and text from all files compatible with Apache Tika"""
 
-    def __init__(self, doc_path, tika_port=9998):
+    def __init__(self, doc_path, tika_port=9998, host='localhost'):
 
         self.doc_path = doc_path
         self.root, self.extension = os.path.splitext(doc_path)
         self.tika_port = tika_port
-        self.text_arg_str = 'curl -T {0} http://localhost:{1}/tika' + \
+        self.text_arg_str = 'curl -T {0} http://' + host + ':{1}/tika' + \
             ' -s --header "Accept: text/plain"'
-        self.metadata_arg_str = 'curl -T {0} http://localhost:{1}/meta' + \
+        self.metadata_arg_str = 'curl -T {0} http://' + host + ':{1}/meta' + \
             ' -s --header "Accept: application/json" > {2}'
 
     def save_text(self, document):
