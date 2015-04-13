@@ -33,10 +33,10 @@ def parse_foiaonline_metadata(metadata_file):
 # Run the scripts
 PrepareDocs(
     'department-of-state',
-    unique_parser=parse_state_metadata).prepare()
+    unique_parser=parse_state_metadata).prepare_documents()
 PrepareDocs(
     'environmental-protection-agency',
-    unique_parser=parse_foiaonline_metadata).prepare()
+    unique_parser=parse_foiaonline_metadata).prepare_documents()
 
 ```
 
@@ -57,10 +57,10 @@ s3_bucket_name = "<<s3 bucket name>>"
 PrepareDocs(
     'department-of-state',
     unique_parser=parse_state_metadata,
-    s3_bucket_name=s3_bucket_name).prepare()
+    s3_bucket_name=s3_bucket_name).prepare_documents()
 PrepareDocs(
     'environmental-protection-agency',
     unique_parser=parse_foiaonline_metadata,
-    s3_bucket_name=s3_bucket_name).prepare()
+    s3_bucket_name=s3_bucket_name).prepare_documents()
 
 ```

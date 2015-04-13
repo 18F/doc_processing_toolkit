@@ -7,18 +7,17 @@ import yaml
 
 class PrepareDocs:
 
-    def __init__(self, agency_directory, unique_parser=None,
-                 s3_bucket_name=None):
+    def __init__(self, agency_directory, custom_parser=None, s3_bucket=None):
         """
         agency_directory: directory of a specific office or agency
-        unique_parser: optional parser function for document metadata
+        custom_parser: optional parser function for document metadata
         not extracted with Tika
         """
         self.agency_directory = agency_directory
-        self.unique_parser = unique_parser
+        self.custom_parser = custom_parser
 
-        if s3_bucket_name:
-            self.s3_bucket = S3Connection().get_bucket(s3_bucket_name)
+        if s3_bucket:
+            self.s3_bucket = S3Connection().get_bucket(s3_bucket)
         else:
             self.s3_bucket = None
 
@@ -40,7 +39,7 @@ class PrepareDocs:
 
             if not metadata.get('file_type'):
                 metadata['file_type'] = tika_metadata.get(
-                    ['dc:format'], '').replace('application/', '')
+                    'dc:format', '').replace('application/', '')
             if not metadata.get('date_released'):
                 metadata['date_released'] = self.parse_date(
                     tika_metadata.get('Last-Save-Date'))
@@ -57,8 +56,8 @@ class PrepareDocs:
         """ Prepares metadata from Tika metadata file, the file location,
         and unique parser if available """
 
-        if self.unique_parser:
-            metadata = self.unique_parser(
+        if self.custom_parser:
+            metadata = self.custom_parser(
                 os.path.join(root, base_file + ".json"))
         else:
             metadata = {}
@@ -142,7 +141,7 @@ class PrepareDocs:
                 manifest.append(metadata)
 
         self.write_manifest(manifest=manifest, directory_path=directory_path)
-        if not self.s3_bucket:
+        if self.s3_bucket:
             self.upload_folder_to_s3(
                 manifest=manifest, directory_path=directory_path)
 
