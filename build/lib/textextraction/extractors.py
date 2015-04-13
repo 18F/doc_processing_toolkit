@@ -13,15 +13,15 @@ class TextExtraction:
     """ The TextExtraction class contains functions for extracting and saving
     metadata and text from all files compatible with Apache Tika"""
 
-    def __init__(self, doc_path, tika_port=9998):
+    def __init__(self, doc_path, tika_port=9998, host='localhost'):
 
         self.doc_path = doc_path
         self.root, self.extension = os.path.splitext(doc_path)
         self.tika_port = tika_port
-        self.text_arg_str = 'curl -T {0} http://localhost:{1}/tika' + \
-            ' --header -s "Accept: text/plain"'
-        self.metadata_arg_str = 'curl -T {0} http://localhost:{1}/meta' + \
-            ' --header "Accept: application/json" -s > {2}'
+        self.text_arg_str = 'curl -T {0} http://' + host + ':{1}/tika' + \
+            ' -s --header "Accept: text/plain"'
+        self.metadata_arg_str = 'curl -T {0} http://' + host + ':{1}/meta' + \
+            ' -s --header "Accept: application/json" > {2}'
 
     def save_text(self, document):
         """ Reads document text and saves it to specified export path """
@@ -37,7 +37,6 @@ class TextExtraction:
         document = subprocess.Popen(
             args=[self.text_arg_str.format(self.doc_path, self.tika_port)],
             stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
             shell=True
         )
         logging.info("%s converted to text from pdf", self.doc_path)
