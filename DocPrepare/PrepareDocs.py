@@ -28,18 +28,23 @@ class PrepareDocs:
         if date:
             return date.split('T')[0]
 
+    def clean_tika_file_type(self, file_type):
+        """ Cleans file type to get correct extension """
+
+        return file_type.replace('application/', '').split(';')[0].strip()
+
     def parse_tika_metadata(self, metadata_file, metadata):
         """ Parses metadata from created by Tika """
 
-        with open(os.path.join(metadata_file), 'r') as f:
+        with open(metadata_file, 'r') as f:
             try:
                 tika_metadata = json.loads(f.read())
             except:
                 tika_metadata = {}
 
             if not metadata.get('file_type'):
-                metadata['file_type'] = tika_metadata.get(
-                    'dc:format', '').replace('application/', '')
+                metadata['file_type'] = self.clean_tika_file_type(
+                    tika_metadata.get('dc:format', ''))
             if not metadata.get('date_released'):
                 metadata['date_released'] = self.parse_date(
                     tika_metadata.get('Last-Save-Date'))
@@ -146,7 +151,7 @@ class PrepareDocs:
                 manifest=manifest, directory_path=directory_path)
 
     def prepare_documents(self):
-        """ Look for time stamped directories inside an agency directory and
+        """ Looks for time stamped directories inside an agency directory and
         generates manifest files"""
 
         directory_files = os.listdir(self.agency_directory)
