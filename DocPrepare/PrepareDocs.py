@@ -92,7 +92,7 @@ class PrepareDocs:
                 upload_file_loc=upload_doc_loc + '.txt')
             # Upload file
             self.upload_file_to_s3(
-                rel_file_loc=rel_doc_root + doc_ext.replace(' ', '\ '),
+                rel_file_loc=rel_doc_root + doc_ext,
                 upload_file_loc=upload_doc_loc + doc_ext)
 
     def upload_folder_to_s3(self, manifest, directory_path):

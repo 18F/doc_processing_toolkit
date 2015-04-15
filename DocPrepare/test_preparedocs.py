@@ -1,6 +1,8 @@
 from unittest import TestCase, main
 
 import os
+import boto
+import moto
 import json
 import PrepareDocs
 
@@ -128,6 +130,64 @@ class TestPrepareDocs(TestCase):
         self.assertTrue('090004d2805baaa4' in manifest)
         os.remove(manifest_file)
 
+
+class TestPrepareDocsWithS3(TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls._connection = PrepareDocs.PrepareDocs(os.path.join(
+            LOCAL_PATH,
+            'fixtures/national-archives-and-records-administration')
+        )
+        cls._connection.custom_parser = parse_foiaonline_metadata
+
+    @moto.mock_s3
+    def test_upload_one_file_to_s3(self):
+        """ Verify that one file can be uploaded to correct s3 bucket
+        and location """
+
+        # Upload file
+        metadata_file_loc = 'fixtures/national-archives-and-records-'
+        metadata_file_loc += 'administration/20150331/090004d2805baaa4/'
+        metadata_file_loc += 'record_metadata.json'
+
+        # Open mock connection
+        conn = boto.connect_s3()
+        conn.create_bucket('testbucket')
+        self._connection.s3_bucket = conn.get_bucket('testbucket')
+
+        # Mock upload and check
+        self._connection.upload_file_to_s3(
+            rel_file_loc=metadata_file_loc, upload_file_loc='test.json')
+        returned_file = conn.get_bucket('testbucket').get_key('test.json').\
+            get_contents_as_string()
+        self.assertTrue(returned_file.startswith(b'{"Content-Type"'))
+
+    @moto.mock_s3
+    def test_upload_all_files_to_s3(self):
+        """ Verify that manifest and relevant files are uploaded to s3
+        bucket """
+
+        # Open mock connection
+        conn = boto.connect_s3()
+        conn.create_bucket('testbucket')
+        self._connection.s3_bucket = conn.get_bucket('testbucket')
+
+        # Upload folder and check
+        self._connection.prepare_documents()
+        for i, key in enumerate(self._connection.s3_bucket.list()):
+            self.assertTrue('20150331' in key.name)
+        self.assertEqual(i, 6)
+
+        # Check if manifest is present
+        manifest_name = 'national-archives-and-records-administration/'
+        manifest_name += '20150331/manifest.yaml'
+        returned_file = conn.get_bucket('testbucket').get_key(manifest_name)
+        self.assertEqual(returned_file.name, manifest_name)
+
+        manifest_file = os.path.join(
+            self._connection.agency_directory, '20150331', 'manifest.yaml')
+        os.remove(manifest_file)
 
 if __name__ == '__main__':
     main()
