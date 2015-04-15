@@ -7,28 +7,31 @@ PrepareDocs.py is script for converting building a document manifest based on me
 from PrepareDocs import PrepareDocs
 
 # Define a function for extracting metadata from file provided by foiaonline
-def parse_foiaonline_metadata(metadata_file):
+def parse_foiaonline_metadata(metadata_file, tika_metadata):
+    """ This is a custom metadata parser that extracts metadata from
+    files, which come with the records. A user can choose to either overwrite
+    the Tika metadata or keep it."""
+
     with open((metadata_file), 'r') as f:
         metadata = json.loads(f.read())
+    tika_metadata['title'] = metadata.get('title')
+    tika_metadata['date_released'] = metadata.get('released_on')
+    tika_metadata['file_type'] = metadata.get('file_type')
 
-    return {
-        'title': metadata.get('title'),
-        'date_released': metadata.get('released_on'),
-        'file_type': metadata.get('file_type', '')}
 
 # Define a function for extracting metadata from file provided by DOS
-    def parse_state_metadata(metadata_file):
+    def parse_state_metadata(metadata_file, tika_metadata):
         with open((metadata_file), 'r') as f:
             metadata = json.loads(f.read())
         date_released = metadata.get('postedDate')
         if date_released:
             date_released = date_released.split('T')[0]
-        return {
+        tika_metadata.update({
             'file_type': metadata.get('file_type'),
             'date_created': metadata.get('docDate'),
             'date_released': date_released,
             'title': metadata.get('subject')
-        }
+        })
 
 # Run the scripts
 PrepareDocs(

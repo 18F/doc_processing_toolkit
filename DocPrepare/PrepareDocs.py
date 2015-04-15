@@ -22,59 +22,55 @@ class PrepareDocs:
             self.s3_bucket = None
 
     def parse_date(self, date):
-        """ Given string like this: 2013-03-20T17:11:17Z returns date in
-        format YYYY-MM-DD"""
+        """ Given string in ISO 8601 format like this: 2013-03-20T17:11:17Z
+        returns date in format YYYY-MM-DD"""
 
         if date:
             return date.split('T')[0]
 
     def clean_tika_file_type(self, file_type):
-        """ Cleans file type to get correct extension """
+        """ Cleans file_type to attempt to get usable extension """
 
         return file_type.replace('application/', '').split(';')[0].strip()
 
-    def parse_tika_metadata(self, metadata_file, metadata):
-        """ Parses metadata from created by Tika """
-
+    def parse_tika_metadata(self, metadata_file):
+        """ Parses metadata created by Tika and returns a dictionary
+         containing file_type, date_released, title, pages, and date_created
+        """
+        metadata = {}
         with open(metadata_file, 'r') as f:
             try:
                 tika_metadata = json.loads(f.read())
             except:
                 tika_metadata = {}
 
-            if not metadata.get('file_type'):
-                metadata['file_type'] = self.clean_tika_file_type(
-                    tika_metadata.get('dc:format', ''))
-            if not metadata.get('date_released'):
-                metadata['date_released'] = self.parse_date(
-                    tika_metadata.get('Last-Save-Date'))
-            if not metadata.get('title'):
-                metadata['title'] = tika_metadata.get('title')
-
-            metadata['pages'] = tika_metadata.get('xmpTPg:NPages')
-            metadata['date_created'] = self.parse_date(
-                tika_metadata.get('meta:creation-date'))
-
-            return metadata
-
-    def prep_metadata(self, root, base_file):
-        """ Prepares metadata from Tika metadata file, the file location,
-        and unique parser if available """
-
-        if self.custom_parser:
-            metadata = self.custom_parser(
-                os.path.join(root, base_file + ".json"))
-        else:
-            metadata = {}
-
-        metadata = self.parse_tika_metadata(
-            os.path.join(root, base_file + "_metadata.json"),
-            metadata=metadata)
+        metadata['file_type'] = self.clean_tika_file_type(
+            tika_metadata.get('dc:format', ''))
+        metadata['date_released'] = self.parse_date(
+            tika_metadata.get('Last-Save-Date'))
+        metadata['title'] = tika_metadata.get('title')
+        metadata['pages'] = tika_metadata.get('xmpTPg:NPages')
+        metadata['date_created'] = self.parse_date(
+            tika_metadata.get('meta:creation-date'))
 
         return metadata
 
+    def prep_metadata(self, root, base_file):
+        """ Prepares metadata from Tika metadata file and applies a unique
+        parser to the data if available """
+
+        metadata = self.parse_tika_metadata(
+            metadata_file=os.path.join(root, base_file + "_metadata.json"))
+
+        if self.custom_parser:
+            self.custom_parser(
+                metadata_file=os.path.join(root, base_file + ".json"),
+                tika_metadata=metadata
+            )
+        return metadata
+
     def upload_file_to_s3(self, rel_file_loc, upload_file_loc):
-        """ Upload individual document to s3 """
+        """ Uploads individual document to s3 """
 
         k = Key(self.s3_bucket)
         k.key = upload_file_loc
@@ -118,7 +114,8 @@ class PrepareDocs:
                 doc_ext=doc_ext)
 
     def prepare_file_location(self, metadata, root, base_file):
-        """ Adds file location to metadata """
+        """ Adds file location to metadata so that manifest can correctly
+        display it """
 
         f_dir = os.path.split(root)[-1]
         doc_location = os.path.join(
@@ -134,7 +131,7 @@ class PrepareDocs:
                 default_flow_style=False, allow_unicode=True))
 
     def create_manifest(self, directory_path):
-        """ Generates a file manifest for a specific folder """
+        """ Generates a document manifest for a specific folder """
 
         manifest = []
         for root, dirs, files in os.walk(directory_path):
@@ -151,7 +148,7 @@ class PrepareDocs:
                 manifest=manifest, directory_path=directory_path)
 
     def prepare_documents(self):
-        """ Looks for time stamped directories inside an agency directory and
+        """ Looks for time-stamped directories inside an agency directory and
         generates manifest files"""
 
         directory_files = os.listdir(self.agency_directory)

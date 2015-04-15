@@ -17,13 +17,16 @@ expected_metadata = {
 }
 
 
-def parse_foiaonline_metadata(metadata_file):
+def parse_foiaonline_metadata(metadata_file, tika_metadata):
+    """ This is a custom metadata parser that extracts metadata from
+    files, which come with the records. A user can choose to either overwrite
+    the Tika metadata or keep it."""
+
     with open((metadata_file), 'r') as f:
         metadata = json.loads(f.read())
-    return {
-        'title': metadata.get('title'),
-        'date_released': metadata.get('released_on'),
-        'file_type': metadata.get('file_type', '')}
+    tika_metadata['title'] = metadata.get('title')
+    tika_metadata['date_released'] = metadata.get('released_on')
+    tika_metadata['file_type'] = metadata.get('file_type')
 
 
 class TestPrepareDocs(TestCase):
@@ -58,24 +61,16 @@ class TestPrepareDocs(TestCase):
         metadata_file_loc = os.path.join(LOCAL_PATH, metadata_file_loc)
 
         metadata = self._connection.parse_tika_metadata(
-            metadata_file=metadata_file_loc, metadata={})
+            metadata_file=metadata_file_loc)
         self.assertEqual(expected_metadata, metadata)
-
-        # Given data, test that blanks are filled in without overwriting
-        del metadata['pages']
-        metadata['date_released'] = '2010-01-21'
-        new_metadata = self._connection.parse_tika_metadata(
-            metadata_file=metadata_file_loc, metadata=metadata)
-        self.assertEqual(new_metadata['pages'], '79')
-        self.assertEqual(new_metadata['date_released'], '2010-01-21')
 
     def test_prep_metadata(self):
         """ Verify that data are extracted without custom parser
         and data are correctly merged with custom parser """
 
         # Without custom parser
-        root = os.path.join(LOCAL_PATH, 'fixtures/national-archives') + \
-            '-and-records-administration/20150331/090004d2805baaa4'
+        root = os.path.join(LOCAL_PATH, 'fixtures/national-archives')
+        root += '-and-records-administration/20150331/090004d2805baaa4'
         base_file = 'record'
         metadata = self._connection.prep_metadata(
             root=root, base_file=base_file)
@@ -103,7 +98,7 @@ class TestPrepareDocs(TestCase):
             metadata['doc_location'], '090004d2805baaa4/record.pdf')
 
     def test_write_manifest(self):
-        """ Checks to make sure manifest is written correctly """
+        """ Checks to make sure manifest is written """
 
         directory_path = os.path.join(LOCAL_PATH, 'fixtures')
         print(directory_path)
@@ -117,7 +112,8 @@ class TestPrepareDocs(TestCase):
         os.remove(manifest_file)
 
     def test_prepare_documents(self):
-        """ Test to make sure manifest is correctly written """
+        """ Check to ensure document metadata is collected from all documents
+        in the target folder and manifest contains the correct data """
 
         self._connection.custom_parser = parse_foiaonline_metadata
         self._connection.prepare_documents()
@@ -165,7 +161,7 @@ class TestPrepareDocsWithS3(TestCase):
 
     @moto.mock_s3
     def test_upload_all_files_to_s3(self):
-        """ Verify that manifest and relevant files are uploaded to s3
+        """ Verify that manifest and relevant files are uploaded to s3 a
         bucket """
 
         # Open mock connection
