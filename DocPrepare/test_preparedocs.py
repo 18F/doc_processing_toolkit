@@ -19,14 +19,15 @@ expected_metadata = {
 
 def parse_foiaonline_metadata(metadata_file, tika_metadata):
     """ This is a custom metadata parser that extracts metadata from
-    files, which come with the records. A user can choose to either overwrite
-    the Tika metadata or keep it."""
+    files, which come with the records. A user can choose to either
+    overwrite the Tika metadata or keep it."""
 
     with open((metadata_file), 'r') as f:
         metadata = json.loads(f.read())
     tika_metadata['title'] = metadata.get('title')
     tika_metadata['date_released'] = metadata.get('released_on')
     tika_metadata['file_type'] = metadata.get('file_type')
+    return tika_metadata
 
 
 class TestPrepareDocs(TestCase):

@@ -31,6 +31,9 @@ class PrepareDocs:
     def clean_tika_file_type(self, file_type):
         """ Cleans file_type to attempt to get usable extension """
 
+        if type(file_type) == list:
+            file_type = file_type[0]
+
         return file_type.replace('application/', '').split(';')[0].strip()
 
     def parse_tika_metadata(self, metadata_file):
@@ -61,9 +64,8 @@ class PrepareDocs:
 
         metadata = self.parse_tika_metadata(
             metadata_file=os.path.join(root, base_file + "_metadata.json"))
-
         if self.custom_parser:
-            self.custom_parser(
+            metadata = self.custom_parser(
                 metadata_file=os.path.join(root, base_file + ".json"),
                 tika_metadata=metadata
             )
