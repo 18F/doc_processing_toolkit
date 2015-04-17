@@ -27,7 +27,7 @@ def delete_files():
         'excel_spreadsheet',
         'record_some_text'
     ]
-    extensions = ['_metadata.json', '.tiff', '.txt']
+    extensions = ['_metadata.json', '.png', '.txt']
     for item_path in file_iterator(items_to_delete, extensions):
         if os.path.isfile(item_path):
             os.remove(item_path)
@@ -82,7 +82,7 @@ class TestTextExtraction(TestCase):
             extractor.extract()
             self.assertTrue(os.path.isfile(extractor.root + '.txt'))
             self.assertTrue(os.path.isfile(extractor.root + '_metadata.json'))
-            self.assertFalse(os.path.isfile(extractor.root + '.tiff'))
+            self.assertFalse(os.path.isfile(extractor.root + '.png'))
 
 
 class TestPDFTextExtraction(TestCase):
@@ -149,14 +149,14 @@ class TestPDFTextExtraction(TestCase):
         self.assertTrue(
             os.path.isfile(LOCAL_PATH + '/fixtures/record_text.txt'))
         self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.tiff'))
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.png'))
         self.assertTrue(
             os.path.isfile(LOCAL_PATH + '/fixtures/record_text_metadata.json'))
 
         self.assertTrue(
             os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.txt'))
         self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.png'))
         self.assertTrue(os.path.isfile(
             LOCAL_PATH + '/fixtures/record_no_text_metadata.json'))
 
@@ -189,13 +189,13 @@ class Testtextextractor(TestCase):
 
         # Check that only doc with no text used OCR
         self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.png'))
         self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_some_text.tiff'))
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_some_text.png'))
         self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.tiff'))
+            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.png'))
         self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/excel_spreadsheet.tiff'))
+            os.path.isfile(LOCAL_PATH + '/fixtures/excel_spreadsheet.png'))
 
 if __name__ == '__main__':
     main()
