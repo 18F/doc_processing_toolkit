@@ -1,3 +1,4 @@
+import glob
 import logging
 import os
 import re
@@ -93,29 +94,40 @@ class PDFTextExtraction(TextExtraction):
         """
 
         pdffonts_output = subprocess.Popen(
-            ['pdffonts %s' % self.doc_path],
-            shell=True,
+            ['pdffonts', self.doc_path],
             stdout=subprocess.PIPE,
         )
         if pdffonts_output.communicate()[0].decode("utf-8").count("\n") > 2:
             return True
 
+    def cat_and_clean(self, out_file):
+        """ Concatenates file to main text file and removes individual file """
+
+        out_file = out_file + '.txt'
+        cat_arg = 'cat {0} >> {1}'.format(out_file, self.root + '.txt')
+        subprocess.check_call(args=[cat_arg], shell=True)
+        os.remove(out_file)
+
     def img_to_text(self):
         """ Uses Tesseract OCR to convert png image to text file """
 
-        document = subprocess.Popen(
-            args=['tesseract', self.root + '.png', self.root],
-            stdout=subprocess.PIPE, stderr=subprocess.STDOUT
-        )
-        document.communicate()
+        for png in sorted(glob.glob('%s_*.png' % self.root)):
+            out_file = png[:-4]
+            args = ['tesseract', png, out_file, '-l', 'eng']
+            doc_process = subprocess.Popen(
+                args=args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            doc_process.communicate()
+            self.cat_and_clean(out_file)
+
         logging.info("%s converted to text from image", self.root + '.png')
 
     def pdf_to_img(self):
         """ Converts and saves pdf file to png image using Ghostscript"""
 
-        export_path = self.root + ".png"
+        export_path = self.root + "_%03d.png"
         args = [
-            'gs', '-dNOPAUSE', '-dBATCH', '-sDEVICE=pnggray', '-r300',
+            'gs', '-dNOPAUSE', '-dBATCH', '-sDEVICE=pnggray',
+            '-dINTERPOLATE', '-r300', '-dNumRenderingThreads=8',
             '-sOutputFile={0}'.format(export_path), self.doc_path
         ]
         process = subprocess.Popen(
