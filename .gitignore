@@ -9,4 +9,5 @@ __pycache__
 test_docs/
 *.pyc
 .coverage
-build
+build/
+*.pdf

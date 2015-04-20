@@ -133,7 +133,7 @@ class PDFTextExtraction(TextExtraction):
         process = subprocess.Popen(
             args=args, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
         process.communicate()
-        logging.info("%s converted to tiff image", self.doc_path)
+        logging.info("%s converted to png images", self.doc_path)
         return export_path
 
     def extract(self):
