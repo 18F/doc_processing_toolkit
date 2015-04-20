@@ -9,23 +9,34 @@ Python library to extract text from any file type compatiable with [TIKA](http:/
 - [Apache Tika](http://tika.apache.org/)
 - [Ghostscript](http://www.ghostscript.com/)
 - [Tesseract](https://code.google.com/p/tesseract-ocr/)
+- [Xpdf](http://www.foolabs.com/xpdf/)
 
 ##### Installation
-1. Download tika-app-1.7.jar from [Apache Tika](http://tika.apache.org/)
+1. Download tika-server-1.7.jar from [Apache Tika](http://www.apache.org/dyn/closer.cgi/tika/tika-server-1.7.jar)
 2. Mac: `brew install ghostscripts` Ubuntu: `sudo apt-get install ghostscript`
-3. `brew install tesseract` Ubuntu: `sudo apt-get install tesseract-ocr`
+3. Mac: `brew install tesseract` Ubuntu: `sudo apt-get install tesseract-ocr`
+4. Mac: `brew tap homebrew/x11` and `brew install xpdf` Ubuntu: `sudo apt-get install poppler-utils`
 
 ##### Usage
-These script assume that Apache Tika server is running in text mode.
-Start Tika Server
-`java -jar tika-app-1.7.jar --server --text --port 9998`
+These script assume that an instance of Tika server is running.
+Starting Tika Servers
+`java -jar tika-server-1.7.jar --port 9998`
 
 In Python script
 ```python
-import doc_process_toolkit
-# To convert all PDF and XLS files
-doc_process_toolkit.process_documents(["glob path/*.pdf", "glob path/*.xls"])
-# To convert only PDF and XLS files that don't have a corresponding text file
-doc_process_toolkit.process_documents(
-    ["glob path/*.pdf", "glob path/*.xls"], skip_converted=True)
+from textextraction.extractors import textextractor
+textextractor(doc_path=doc_path, force_convert=force_convert)
 ```
+
+##### Tests
+In order to run tests:
+1. All requirements must be installed
+2. Both Tika servers need to be running
+3. An env variable must be set to indicate that the system is ready
+`export ALL_INSTALLED=True`
+
+Tests are run with nose
+Installation
+`pip install nose`
+Running tests
+`nosetests`

@@ -1,6 +1,6 @@
 utils.py
 *.DS_Store
-tika-app-1.7.jar
+*.jar
 research files/
 *.tiff
 *_new.txt
@@ -9,3 +9,4 @@ __pycache__
 test_docs/
 *.pyc
 .coverage
+build
