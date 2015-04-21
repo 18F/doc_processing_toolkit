@@ -9,7 +9,7 @@ import yaml
 class PrepareDocsS3(PrepareDocs):
 
     def open_metadata_file(self, metadata_file):
-        """ Opens a file """
+        """ Opens a metadata file from s3 """
 
         k = Key(self.s3_bucket)
         k.key = metadata_file
