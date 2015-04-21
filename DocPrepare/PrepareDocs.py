@@ -36,17 +36,23 @@ class PrepareDocs:
 
         return file_type.replace('application/', '').split(';')[0].strip()
 
-    def parse_tika_metadata(self, metadata_file):
-        """ Parses metadata created by Tika and returns a dictionary
-         containing file_type, date_released, title, pages, and date_created
-        """
-        metadata = {}
+    def open_metadata_file(self, metadata_file):
+        """ Opens a meta data file and converts to a dict """
+
         with open(metadata_file, 'r') as f:
             try:
                 tika_metadata = json.loads(f.read())
             except:
                 tika_metadata = {}
+        return tika_metadata
 
+    def parse_tika_metadata(self, metadata_file):
+        """ Parses metadata created by Tika and returns a dictionary
+         containing file_type, date_released, title, pages, and date_created
+        """
+
+        metadata = {}
+        tika_metadata = self.open_metadata_file(metadata_file)
         metadata['file_type'] = self.clean_tika_file_type(
             tika_metadata.get('dc:format', ''))
         metadata['date_released'] = self.parse_date(

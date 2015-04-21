@@ -1,6 +1,9 @@
 ## PrepareDocs
 
-PrepareDocs.py is script for converting building a document manifest based on metadata extracted from Tika and optionally, metadata that comes with each document.
+PrepareDocs.py is script for building a document manifest based on metadata extracted from Tika and optionally, metadata that comes with each document. This script also exports documents to an s3 bucket, when an s3 bucket is provided.
+
+PrepareDocsS3.py performs the same task except deal with documents entirely on
+S3.
 
 # Usage Without S3
 ```python

@@ -9,3 +9,9 @@ __pycache__
 test_docs/
 *.pyc
 .coverage
+<<<<<<< Updated upstream
+=======
+build/
+*.pdf
+.env
+>>>>>>> Stashed changes
