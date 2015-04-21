@@ -3,6 +3,9 @@ import logging
 import os
 import re
 import subprocess
+import tempfile
+import urllib
+
 
 """
 The functions below are minimal Python wrappers around Ghostscript, Tika, and
@@ -22,12 +25,12 @@ class TextExtraction:
         self.text_arg_str = 'curl -T {0} http://' + host + ':{1}/tika '
         self.text_arg_str += '-s --header "Accept: text/plain"'
         self.metadata_arg_str = 'curl -T {0} http://' + host + ':{1}/meta '
-        self.metadata_arg_str += '-s --header "Accept: application/json" > {2}'
+        self.metadata_arg_str += '-s --header "Accept: application/json"'
 
-    def save_text(self, document):
-        """ Reads document text and saves it to specified export path """
+    def save(self, document, ext):
+        """ Save document to root location """
 
-        export_path = self.root + ".txt"
+        export_path = self.root + ext
 
         with open(export_path, 'w') as f:
             f.write(document)
@@ -48,14 +51,14 @@ class TextExtraction:
         Extracts metadata using Tika into a json file
         """
 
-        metadata_path = self.root + '_metadata.json'
-        subprocess.call(
+        metadata = subprocess.Popen(
             args=[
                 self.metadata_arg_str.format(
-                    self.doc_path, self.tika_port, metadata_path)
-            ],
+                    self.doc_path, self.tika_port)],
+            stdout=subprocess.PIPE,
             shell=True
         )
+        self.save(metadata.stdout.read().decode('utf-8'), ext='_metadata.json')
 
     def extract(self):
         """
@@ -64,7 +67,7 @@ class TextExtraction:
         check if extraction produces text.
         """
         self.extract_metadata()
-        self.save_text(self.doc_to_text().stdout.read().decode('utf-8'))
+        self.save(self.doc_to_text().stdout.read().decode('utf-8'), ext='.txt')
 
 
 class PDFTextExtraction(TextExtraction):
@@ -72,9 +75,10 @@ class PDFTextExtraction(TextExtraction):
     functionality is triggered only if a PDF document is not responsive or
     if Tika fails to extract text """
 
-    def __init__(self, doc_path, tika_port=9998, word_threshold=10):
+    def __init__(self, doc_path, tika_port=9998,
+                 host='localhost', word_threshold=10):
 
-        super(self.__class__, self).__init__(doc_path, tika_port)
+        super().__init__(doc_path, tika_port, host)
         self.WORDS = re.compile('[A-Za-z]{3,}')
         self.word_threshold = word_threshold
 
@@ -151,12 +155,33 @@ class PDFTextExtraction(TextExtraction):
             doc_text = self.doc_to_text().stdout.read().decode('utf-8')
             # Determine if extraction suceeded
             if self.meets_len_threshold(doc_text):
-                self.save_text(doc_text)
+                self.save(doc_text, ext='.txt')
             else:
                 needs_ocr = True
         if needs_ocr:
             self.pdf_to_img()
             self.img_to_text()
+
+
+class TextExtractionS3(TextExtraction):
+
+    def __init__(self, url, tika_port=9998, host='localhost'):
+        file_name = url.split('/')[-1]
+        self.temp = tempfile.TemporaryDirectory()
+        doc_path, message = urllib.request.urlretrieve(
+            url, os.path.join(self.temp.name, file_name))
+        super().__init__(doc_path, tika_port, host)
+
+
+class PDFTextExtractionS3(TextExtractionS3, PDFTextExtraction):
+
+    def __init__(self, url, tika_port=9998, host='localhost',
+                 word_threshold=10):
+
+        # Don't user super because it follows a different inheritance line
+        TextExtractionS3.__init__(self, url, tika_port, host)
+        self.WORDS = re.compile('[A-Za-z]{3,}')
+        self.word_threshold = word_threshold
 
 
 def text_extractor(doc_path, force_convert=False):
