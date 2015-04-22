@@ -4,7 +4,8 @@ import os
 import re
 import subprocess
 import tempfile
-import urllib
+
+from boto.s3.key import Key
 
 
 """
@@ -104,26 +105,28 @@ class PDFTextExtraction(TextExtraction):
         if pdffonts_output.communicate()[0].decode("utf-8").count("\n") > 2:
             return True
 
-    def cat_and_clean(self, out_file):
+    def cat_and_clean(self, out_file, main_text_file):
         """ Concatenates file to main text file and removes individual file """
 
         out_file = out_file + '.txt'
-        cat_arg = 'cat {0} >> {1}'.format(out_file, self.root + '.txt')
+        cat_arg = 'cat {0} >> {1}'.format(out_file, main_text_file)
         subprocess.check_call(args=[cat_arg], shell=True)
         os.remove(out_file)
 
     def img_to_text(self):
         """ Uses Tesseract OCR to convert png image to text file """
 
+        main_text_file = self.root + '.txt'
         for png in sorted(glob.glob('%s_*.png' % self.root)):
             out_file = png[:-4]
             args = ['tesseract', png, out_file, '-l', 'eng']
             doc_process = subprocess.Popen(
                 args=args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             doc_process.communicate()
-            self.cat_and_clean(out_file)
+            self.cat_and_clean(out_file, main_text_file)
 
         logging.info("%s converted to text from image", self.root + '.png')
+        return main_text_file
 
     def pdf_to_img(self):
         """ Converts and saves pdf file to png image using Ghostscript"""
@@ -165,23 +168,53 @@ class PDFTextExtraction(TextExtraction):
 
 class TextExtractionS3(TextExtraction):
 
-    def __init__(self, url, tika_port=9998, host='localhost'):
-        file_name = url.split('/')[-1]
+    def __init__(self, file_key, s3_bucket, tika_port=9998, host='localhost'):
+        """ Connects to s3 bucket and downloads file into a temp dir
+        before using super to initalize like TextExtraction """
+
+        self.file_key = file_key
+        self.s3_bucket = s3_bucket
+
         self.temp = tempfile.TemporaryDirectory()
-        doc_path, message = urllib.request.urlretrieve(
-            url, os.path.join(self.temp.name, file_name))
+        doc_path = os.path.join(self.temp.name, os.path.basename(file_key))
+
+        k = Key(self.s3_bucket)
+        k.key = self.file_key
+        k.get_contents_to_filename(doc_path)
+
         super().__init__(doc_path, tika_port, host)
+
+    def save(self, document, ext):
+        """ Save document to s3 """
+
+        root, ext = os.path.splitext(self.file_key)
+        s3_path = root + ext
+
+        k = Key(self.s3_bucket)
+        k.key = s3_path
+        k.set_contents_from_string(str(document))
 
 
 class PDFTextExtractionS3(TextExtractionS3, PDFTextExtraction):
 
-    def __init__(self, url, tika_port=9998, host='localhost',
+    def __init__(self, file_key, s3_bucket, tika_port=9998, host='localhost',
                  word_threshold=10):
 
-        # Don't user super because it follows a different inheritance line
-        TextExtractionS3.__init__(self, url, tika_port, host)
+        TextExtractionS3.__init__(self, file_key, s3_bucket, tika_port, host)
         self.WORDS = re.compile('[A-Za-z]{3,}')
         self.word_threshold = word_threshold
+
+    def img_to_text(self):
+        """ Extends img_to_text from PDFTextExtraction and adds a s3 save
+        function """
+
+        main_text_file = super().img_to_text()
+        local_base, text_file_name = os.path.split(main_text_file)
+        s3_base, s3_doc_name = os.path.split(self.file_key)
+
+        k = Key(self.s3_bucket)
+        k.key = os.path.join(s3_base, text_file_name)
+        k.set_contents_from_filename(main_text_file)
 
 
 def text_extractor(doc_path, force_convert=False):
