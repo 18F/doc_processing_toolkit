@@ -1,7 +1,11 @@
 import os
+import moto
+import boto
 
+from boto.s3.key import Key
 from unittest import TestCase, main
 from textextraction.extractors import (TextExtraction, PDFTextExtraction,
+                                       TextExtractionS3, PDFTextExtractionS3,
                                        text_extractor)
 
 LOCAL_PATH = os.path.dirname(os.path.realpath(__file__))
@@ -194,6 +198,64 @@ class Testtextextractor(TestCase):
             os.path.join(LOCAL_PATH, 'fixtures/record_text_001.png')))
         self.assertFalse(os.path.isfile(
             os.path.join(LOCAL_PATH, 'fixtures/excel_spreadsheet_001.png')))
+
+
+class TestTextExtractionS3(TestCase):
+
+    @moto.mock_s3
+    def test_init(self):
+        """ Test that TextExtractionS3 correctly initalizes and saves
+        document from s3 to local temp repo and vice versa """
+
+        # Create mock connection to s3 and add pdf
+        conn = boto.connect_s3()
+        conn.create_bucket('testbucket')
+        s3_bucket = conn.get_bucket('testbucket')
+        k = Key(s3_bucket)
+        k.key = 'testfile.pdf'
+        k.set_contents_from_filename(
+            os.path.join(LOCAL_PATH, 'fixtures/record_no_text.pdf'))
+        returned_file = conn.get_bucket('testbucket').get_key('testfile.pdf')
+        self.assertEqual('testfile.pdf', returned_file.name)
+
+        # Init TextExtractionS3 and assert that s3 file was downloaded
+        self.extractor = TextExtractionS3(
+            file_key='testfile.pdf', s3_bucket=s3_bucket)
+        self.assertTrue(os.path.exists(self.extractor.doc_path))
+
+        self.extractor.extract_metadata()
+        item = list(self.extractor.s3_bucket.list('testfile_metadata.json'))
+        self.assertEqual(item[0].name, 'testfile_metadata.json')
+
+
+class TestPDFTextExtractionS3(TestCase):
+
+    # PDFTextExtractionS3
+    @moto.mock_s3
+    def test_init(self):
+        """ Test that PDFTextExtractionS3 correctly initalizes and saves
+        document from s3 after OCR """
+
+        # Create mock connection to s3 and add pdf
+        conn = boto.connect_s3()
+        conn.create_bucket('testbucket')
+        s3_bucket = conn.get_bucket('testbucket')
+        k = Key(s3_bucket)
+        k.key = 'testfile.pdf'
+        k.set_contents_from_filename(
+            os.path.join(LOCAL_PATH, 'fixtures/record_no_text.pdf'))
+
+        # Init PDFTextExtractionS3 and assert that s3 file was downloaded
+        self.extractor = PDFTextExtractionS3(
+            file_key='testfile.pdf', s3_bucket=s3_bucket)
+        self.assertTrue(os.path.exists(self.extractor.doc_path))
+
+        # Convert document with OCR and test if files are in the s3 bucket
+        self.extractor.extract()
+        item = list(self.extractor.s3_bucket.list('testfile.txt'))
+        self.assertEqual(item[0].name, 'testfile.txt')
+        item = list(self.extractor.s3_bucket.list('testfile_metadata.json'))
+        self.assertEqual(item[0].name, 'testfile_metadata.json')
 
 if __name__ == '__main__':
     main()

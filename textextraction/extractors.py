@@ -187,7 +187,7 @@ class TextExtractionS3(TextExtraction):
     def save(self, document, ext):
         """ Save document to s3 """
 
-        root, ext = os.path.splitext(self.file_key)
+        root, old_ext = os.path.splitext(self.file_key)
         s3_path = root + ext
 
         k = Key(self.s3_bucket)
