@@ -40,3 +40,7 @@ Installation
 `pip install nose`
 Running tests
 `nosetests`
+
+##### OCR methodology
+Documents are converted to gray PNGs with a DPI of 300 using [Ghostscript](http://www.ghostscript.com/) and then OCRed with [Tesseract](https://code.google.com/p/tesseract-ocr/).
+Settings for OCR adapted from [OPTIMAL IMAGE CONVERSION SETTINGS FOR TESSERACT OCR](https://mazira.com/blog/optimal-image-conversion-settings-tesseract-ocr) and [The Free Law Project's Courtlistener](https://github.com/freelawproject/courtlistener).
