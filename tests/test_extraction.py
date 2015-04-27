@@ -11,10 +11,9 @@ def file_iterator(base_files, extensions=['']):
     """
     Iterates through a list of base_files with each extension given
     """
-    local_path = os.path.dirname(os.path.realpath(__file__))
     for base_file in base_files:
         for extension in extensions:
-            yield local_path + '/fixtures/' + base_file + extension
+            yield os.path.join(LOCAL_PATH, 'fixtures', base_file + extension)
 
 
 def delete_files():
@@ -27,7 +26,7 @@ def delete_files():
         'excel_spreadsheet',
         'record_some_text'
     ]
-    extensions = ['_metadata.json', '.tiff', '.txt']
+    extensions = ['_metadata.json', '_001.png', '.txt']
     for item_path in file_iterator(items_to_delete, extensions):
         if os.path.isfile(item_path):
             os.remove(item_path)
@@ -45,25 +44,24 @@ class TestTextExtraction(TestCase):
         """
         Check if meta data is properly created
         """
-
         extractor = TextExtraction(
-            doc_path=LOCAL_PATH + '/fixtures/record_text.pdf')
+            doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_text.pdf'))
         extractor.extract_metadata()
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text_metadata.json'))
+        self.assertTrue(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_text_metadata.json')))
 
     def test_doc_to_text(self):
         """
         Check if document text is properly extracted, when possible
         """
         extractor = TextExtraction(
-            doc_path=LOCAL_PATH + '/fixtures/record_text.pdf')
+            doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_text.pdf'))
         doc = extractor.doc_to_text()
         self.assertTrue(
             'Cupcake ipsum dolor sit' in doc.stdout.read().decode('utf-8'))
 
         extractor = TextExtraction(
-            doc_path=LOCAL_PATH + '/fixtures/record_no_text.pdf')
+            doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_no_text.pdf'))
         doc = extractor.doc_to_text()
         self.assertEqual(doc.stdout.read().decode('utf-8').strip('\n'), '')
 
@@ -82,7 +80,7 @@ class TestTextExtraction(TestCase):
             extractor.extract()
             self.assertTrue(os.path.isfile(extractor.root + '.txt'))
             self.assertTrue(os.path.isfile(extractor.root + '_metadata.json'))
-            self.assertFalse(os.path.isfile(extractor.root + '.tiff'))
+            self.assertFalse(os.path.isfile(extractor.root + '_001.png'))
 
 
 class TestPDFTextExtraction(TestCase):
@@ -112,11 +110,11 @@ class TestPDFTextExtraction(TestCase):
         Check if check_for_text returns True when document contains text
         """
 
-        doc_path = "tests/fixtures/record_text.pdf"
+        doc_path = os.path.join(LOCAL_PATH, "fixtures/record_text.pdf")
         extractor = PDFTextExtraction(doc_path=doc_path)
         self.assertTrue(extractor.has_text())
 
-        doc_path = "tests/fixtures/record_no_text.pdf"
+        doc_path = os.path.join(LOCAL_PATH, "fixtures/record_no_text.pdf")
         extractor = PDFTextExtraction(doc_path=doc_path)
         self.assertFalse(extractor.has_text())
 
@@ -125,11 +123,11 @@ class TestPDFTextExtraction(TestCase):
         Check if pdf docs can be converted to images and then to text
         """
         extractor = PDFTextExtraction(
-            doc_path=LOCAL_PATH + '/fixtures/record_no_text.pdf')
+            doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_no_text.pdf'))
         extractor.pdf_to_img()
         extractor.img_to_text()
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.txt'))
+        self.assertTrue(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_no_text.pdf')))
 
     def test_extract(self):
         """
@@ -138,27 +136,27 @@ class TestPDFTextExtraction(TestCase):
         """
         # Run extraction
         extractor = PDFTextExtraction(
-            doc_path=LOCAL_PATH + '/fixtures/record_text.pdf')
+            doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_text.pdf'))
         extractor.extract()
 
         extractor = PDFTextExtraction(
-            doc_path=LOCAL_PATH + '/fixtures/record_no_text.pdf')
+            doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_no_text.pdf'))
         extractor.extract()
 
         # Check for image file, when no text
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.txt'))
-        self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.tiff'))
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text_metadata.json'))
-
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.txt'))
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
         self.assertTrue(os.path.isfile(
-            LOCAL_PATH + '/fixtures/record_no_text_metadata.json'))
+            os.path.join(LOCAL_PATH, 'fixtures/record_text.txt')))
+        self.assertFalse(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_text_001.png')))
+        self.assertTrue(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_text_metadata.json')))
+
+        self.assertTrue(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_no_text.txt')))
+        self.assertTrue(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_no_text_001.png')))
+        self.assertTrue(os.path.isfile(os.path.join(
+            LOCAL_PATH, 'fixtures/record_no_text_metadata.json')))
 
 
 class Testtextextractor(TestCase):
@@ -188,14 +186,14 @@ class Testtextextractor(TestCase):
             self.assertTrue(os.path.isfile(root + '_metadata.json'))
 
         # Check that only doc with no text used OCR
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_no_text.tiff'))
-        self.assertTrue(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_some_text.tiff'))
-        self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/record_text.tiff'))
-        self.assertFalse(
-            os.path.isfile(LOCAL_PATH + '/fixtures/excel_spreadsheet.tiff'))
+        self.assertTrue(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_no_text_001.png')))
+        self.assertTrue(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_some_text_001.png')))
+        self.assertFalse(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/record_text_001.png')))
+        self.assertFalse(os.path.isfile(
+            os.path.join(LOCAL_PATH, 'fixtures/excel_spreadsheet_001.png')))
 
 if __name__ == '__main__':
     main()

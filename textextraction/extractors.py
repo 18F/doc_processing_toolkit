@@ -1,3 +1,4 @@
+import glob
 import logging
 import os
 import re
@@ -18,10 +19,10 @@ class TextExtraction:
         self.doc_path = doc_path
         self.root, self.extension = os.path.splitext(doc_path)
         self.tika_port = tika_port
-        self.text_arg_str = 'curl -T {0} http://' + host + ':{1}/tika' + \
-            ' -s --header "Accept: text/plain"'
-        self.metadata_arg_str = 'curl -T {0} http://' + host + ':{1}/meta' + \
-            ' -s --header "Accept: application/json" > {2}'
+        self.text_arg_str = 'curl -T {0} http://' + host + ':{1}/tika '
+        self.text_arg_str += '-s --header "Accept: text/plain"'
+        self.metadata_arg_str = 'curl -T {0} http://' + host + ':{1}/meta '
+        self.metadata_arg_str += '-s --header "Accept: application/json" > {2}'
 
     def save_text(self, document):
         """ Reads document text and saves it to specified export path """
@@ -93,39 +94,46 @@ class PDFTextExtraction(TextExtraction):
         """
 
         pdffonts_output = subprocess.Popen(
-            ['pdffonts %s' % self.doc_path],
-            shell=True,
+            ['pdffonts', self.doc_path],
             stdout=subprocess.PIPE,
         )
         if pdffonts_output.communicate()[0].decode("utf-8").count("\n") > 2:
             return True
 
-    def img_to_text(self):
-        """ Uses Tesseract OCR to convert tiff image to text file """
+    def cat_and_clean(self, out_file):
+        """ Concatenates file to main text file and removes individual file """
 
-        document = subprocess.Popen(
-            args=['tesseract', self.root + '.tiff', self.root],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT
-        )
-        document.communicate()
-        logging.info("%s converted to text from image", self.root + '.tiff')
+        out_file = out_file + '.txt'
+        cat_arg = 'cat {0} >> {1}'.format(out_file, self.root + '.txt')
+        subprocess.check_call(args=[cat_arg], shell=True)
+        os.remove(out_file)
+
+    def img_to_text(self):
+        """ Uses Tesseract OCR to convert png image to text file """
+
+        for png in sorted(glob.glob('%s_*.png' % self.root)):
+            out_file = png[:-4]
+            args = ['tesseract', png, out_file, '-l', 'eng']
+            doc_process = subprocess.Popen(
+                args=args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            doc_process.communicate()
+            self.cat_and_clean(out_file)
+
+        logging.info("%s converted to text from image", self.root + '.png')
 
     def pdf_to_img(self):
-        """ Converts and saves pdf file to tiff image using Ghostscript"""
+        """ Converts and saves pdf file to png image using Ghostscript"""
 
-        export_path = self.root + ".tiff"
-
-        args = 'gs -dNOPAUSE -dBATCH -sDEVICE=tiffg4 -sOutputFile={0} {1}'
-        args = args.format(export_path, self.doc_path)
+        export_path = self.root + "_%03d.png"
+        args = [
+            'gs', '-dNOPAUSE', '-dBATCH', '-sDEVICE=pnggray',
+            '-dINTERPOLATE', '-r300', '-dNumRenderingThreads=8',
+            '-sOutputFile={0}'.format(export_path), self.doc_path
+        ]
         process = subprocess.Popen(
-            args=[args],
-            shell=True,
-            stderr=subprocess.STDOUT,
-            stdout=subprocess.PIPE
-        )
+            args=args, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
         process.communicate()
-        logging.info("%s converted to tiff image", self.doc_path)
+        logging.info("%s converted to png images", self.doc_path)
         return export_path
 
     def extract(self):
