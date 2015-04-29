@@ -6,7 +6,7 @@ from boto.s3.key import Key
 from unittest import TestCase, main
 from textextraction.extractors import (TextExtraction, PDFTextExtraction,
                                        TextExtractionS3, PDFTextExtractionS3,
-                                       text_extractor)
+                                       text_extractor, text_extractor_s3)
 
 LOCAL_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -256,6 +256,35 @@ class TestPDFTextExtractionS3(TestCase):
         self.assertEqual(item[0].name, 'testfile.txt')
         item = list(self.extractor.s3_bucket.list('testfile_metadata.json'))
         self.assertEqual(item[0].name, 'testfile_metadata.json')
+
+
+class TesttextextractorS3(TestCase):
+
+    @moto.mock_s3
+    def test_text_extractor_s3(self):
+
+        # Open mock connection
+        conn = boto.connect_s3()
+        conn.create_bucket('testbucket')
+        s3_bucket = conn.get_bucket('testbucket')
+
+        # Upload files to mock bucket
+        k = Key(s3_bucket)
+        k.key = 'record_text.pdf'
+        k.set_contents_from_filename(
+            os.path.join(LOCAL_PATH, 'fixtures/record_text.pdf'),
+            replace=True)
+        k.key = 'excel_spreadsheet.xlsx'
+        k.set_contents_from_filename(
+            os.path.join(LOCAL_PATH, 'fixtures/excel_spreadsheet.xlsx'),
+            replace=True)
+
+        # Convert
+        text_extractor_s3('record_text.pdf', s3_bucket)
+        self.assertEqual(len(list(s3_bucket.list('record_text.txt'))), 1)
+        text_extractor_s3('excel_spreadsheet.xlsx', s3_bucket)
+        self.assertEqual(len(list(s3_bucket.list('excel_spreadsheet.txt'))), 1)
+
 
 if __name__ == '__main__':
     main()
