@@ -6,6 +6,7 @@ import subprocess
 import tempfile
 
 from boto.s3.key import Key
+from boto.s3.connection import S3Connection
 
 
 """
@@ -218,10 +219,9 @@ class PDFTextExtractionS3(TextExtractionS3, PDFTextExtraction):
 
 
 def text_extractor(doc_path, force_convert=False):
-    """
-    Checks if document has been converted and sends file to appropriate
-    converter
-    """
+    """Checks if document has been converted and sends file to appropriate
+    converter"""
+
     root, extension = os.path.splitext(doc_path)
     if not os.path.exists(root + ".txt") or force_convert:
         if extension == '.pdf':
@@ -229,3 +229,20 @@ def text_extractor(doc_path, force_convert=False):
         else:
             extractor = TextExtraction(doc_path)
         extractor.extract()
+
+
+def text_extractor_s3(file_key, s3_bucket, force_convert=True):
+    """ Checks if document has been converted in s3 bucket and and sends file
+    to appropriate converter"""
+
+    root, extension = os.path.splitext(file_key)
+    if not force_convert:
+        if len(list(s3_bucket.list(root + '.txt'))) > 0:
+            logging.info("%s has already been converted", file_key)
+            return
+    if extension == ".pdf":
+        extractor = PDFTextExtractionS3(file_key, s3_bucket)
+    else:
+        extractor = TextExtractionS3(file_key, s3_bucket)
+    logging.info("%s is being converted", file_key)
+    extractor.extract()
