@@ -11,3 +11,4 @@ test_docs/
 .coverage
 build/
 *.pdf
+.env

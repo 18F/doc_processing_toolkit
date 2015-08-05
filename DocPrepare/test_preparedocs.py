@@ -1,10 +1,13 @@
+from boto.s3.key import Key
 from unittest import TestCase, main
 
 import os
 import boto
 import moto
 import json
+import yaml
 import PrepareDocs
+import PrepareDocsS3
 
 LOCAL_PATH = os.path.dirname(os.path.realpath(__file__))
 
@@ -185,6 +188,51 @@ class TestPrepareDocsWithS3(TestCase):
         manifest_file = os.path.join(
             self._connection.agency_directory, '20150331', 'manifest.yaml')
         os.remove(manifest_file)
+
+
+class TestPrepareDocsS3(TestCase):
+    """ Test that PrepareDocsS3 works generates manifest entirely on S3 """
+
+    @classmethod
+    def setUpClass(cls):
+        cls._connection = PrepareDocsS3.PrepareDocsS3(
+            'fixtures/national-archives-and-records-administration/'
+        )
+        cls._connection.custom_parser = parse_foiaonline_metadata
+
+    @moto.mock_s3
+    def test_upload_docs_s3(self):
+        """ Upload documents to mock s3 bucket """
+
+        # Mock upload
+        conn = boto.connect_s3()
+        conn.create_bucket('testbucket')
+        # Add s3 bucket to class instance
+        self._connection.s3_bucket = conn.get_bucket('testbucket')
+        fixture_path = 'fixtures/national-archives-and-records-administration'
+        fixtures = os.path.join(LOCAL_PATH, fixture_path)
+        for dirpath, dirnames, filenames in os.walk(fixtures):
+            for item in filenames:
+                k = Key(self._connection.s3_bucket)
+                s3_loc = os.path.join(dirpath.replace(LOCAL_PATH, ''), item)
+                k.key = s3_loc
+                k.set_contents_from_filename(os.path.join(dirpath, item))
+        returned_file = conn.get_bucket('testbucket').get_key(s3_loc)
+        self.assertEqual(returned_file.name, s3_loc)
+
+        # Generate manifest on s3
+        self._connection.prepare_documents()
+
+        # Get manifest from s3
+        manifest_location = os.path.join(
+            'fixtures', 'national-archives-and-records-administration',
+            '20150331', 'manifest.yaml')
+        manifest = self._connection.s3_bucket.get_key(manifest_location) \
+            .get_contents_as_string()
+        manifest = yaml.load(manifest)
+        # Manifest has a len of 3 because there are 3 documents
+        self.assertEqual(len(manifest), 3)
+
 
 if __name__ == '__main__':
     main()
