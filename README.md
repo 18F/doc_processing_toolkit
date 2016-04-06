@@ -16,6 +16,7 @@ Python library to extract text from any file type compatiable with [TIKA](http:/
 2. Mac: `brew install ghostscripts` Ubuntu: `sudo apt-get install ghostscript`
 3. Mac: `brew install tesseract` Ubuntu: `sudo apt-get install tesseract-ocr`
 4. Mac: `brew tap homebrew/x11` and `brew install xpdf` Ubuntu: `sudo apt-get install poppler-utils`
+5. Install Python dependencies with `pip install -r requirements.txt`
 
 ##### Usage
 These script assume that an instance of Tika server is running.
@@ -37,7 +38,7 @@ In order to run tests:
 
 Tests are run with nose
 Installation
-`pip install nose`
+`pip install -r test-requirements.txt`
 Running tests
 `nosetests`
 
