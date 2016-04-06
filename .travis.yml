@@ -4,7 +4,6 @@ python:
 before_install:
     sudo apt-get install poppler-utils
 install:
-  - pip install nose
-  - pip install coveralls
+  - pip install -r requirements.txt -r test-requirements.txt
 script:
-  - nosetests --with-coverage
+  - nosetests
