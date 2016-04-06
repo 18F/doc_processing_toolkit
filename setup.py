@@ -9,4 +9,5 @@ setup(
     description="Extract or OCR text from a PDF document",
     license="Public Domain",
     long_description=readme,
+    install_requires=['boto'],
 )
