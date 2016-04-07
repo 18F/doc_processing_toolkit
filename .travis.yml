@@ -4,7 +4,7 @@ python:
 env:
   - BOTO_CONFIG=/tmp/nowhere
 before_install:
-    sudo apt-get install poppler-utils
+    sudo apt-get install poppler-utils tesseract-ocr
 install:
   - pip install nose
   - pip install coveralls
