@@ -2,6 +2,7 @@ import glob
 import logging
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 
@@ -109,8 +110,9 @@ class PDFTextExtraction(TextExtraction):
         """ Concatenates file to main text file and removes individual file """
 
         out_file = out_file + '.txt'
-        cat_arg = 'cat {0} >> {1}'.format(out_file, main_text_file)
-        subprocess.check_call(args=[cat_arg], shell=True)
+        with open(main_text_file, 'a') as append:
+            with open(out_file) as source:
+                shutil.copyfileobj(source, append)
         os.remove(out_file)
 
     def img_to_text(self):
