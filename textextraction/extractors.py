@@ -2,6 +2,7 @@ import glob
 import logging
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 
@@ -24,10 +25,12 @@ class TextExtraction:
         self.doc_path = doc_path
         self.root, self.extension = os.path.splitext(doc_path)
         self.tika_port = tika_port
-        self.text_arg_str = 'curl -T {0} http://' + host + ':{1}/tika '
-        self.text_arg_str += '-s --header "Accept: text/plain"'
-        self.metadata_arg_str = 'curl -T {0} http://' + host + ':{1}/meta '
-        self.metadata_arg_str += '-s --header "Accept: application/json"'
+        self.text_args = ['curl', '-T', doc_path,
+                          'http://%s:%s/tika' % (host, tika_port),
+                          '-s', '--header', 'Accept: text/plain']
+        self.metadata_args = ['curl', '-T', doc_path,
+                              'http://%s:%s/meta' % (host, tika_port),
+                              '-s', '--header', 'Accept: application/json']
 
     def save(self, document, ext):
         """ Save document to root location """
@@ -40,11 +43,7 @@ class TextExtraction:
     def doc_to_text(self):
         """ Converts a document to text using the Tika server """
 
-        document = subprocess.Popen(
-            args=[self.text_arg_str.format(self.doc_path, self.tika_port)],
-            stdout=subprocess.PIPE,
-            shell=True
-        )
+        document = subprocess.check_output(self.text_args)
         logging.info("%s converted to text from pdf", self.doc_path)
         return document
 
@@ -53,14 +52,8 @@ class TextExtraction:
         Extracts metadata using Tika into a json file
         """
 
-        metadata = subprocess.Popen(
-            args=[
-                self.metadata_arg_str.format(
-                    self.doc_path, self.tika_port)],
-            stdout=subprocess.PIPE,
-            shell=True
-        )
-        self.save(metadata.stdout.read().decode('utf-8'), ext='_metadata.json')
+        metadata = subprocess.check_output(self.metadata_args)
+        self.save(metadata.decode('utf-8'), ext='_metadata.json')
 
     def extract(self):
         """
@@ -69,7 +62,7 @@ class TextExtraction:
         check if extraction produces text.
         """
         self.extract_metadata()
-        self.save(self.doc_to_text().stdout.read().decode('utf-8'), ext='.txt')
+        self.save(self.doc_to_text().decode('utf-8'), ext='.txt')
 
 
 class PDFTextExtraction(TextExtraction):
@@ -99,19 +92,27 @@ class PDFTextExtraction(TextExtraction):
         automatically returns True.
         """
 
+        args = ['pdffonts', self.doc_path]
         pdffonts_output = subprocess.Popen(
-            ['pdffonts', self.doc_path],
+            args,
             stdout=subprocess.PIPE,
         )
+        result = None
         if pdffonts_output.communicate()[0].decode("utf-8").count("\n") > 2:
-            return True
+            result = True
+        retcode = pdffonts_output.returncode
+        if retcode:
+            raise subprocess.CalledProcessError(retcode, args)
+        if result:
+            return result
 
     def cat_and_clean(self, out_file, main_text_file):
         """ Concatenates file to main text file and removes individual file """
 
         out_file = out_file + '.txt'
-        cat_arg = 'cat {0} >> {1}'.format(out_file, main_text_file)
-        subprocess.check_call(args=[cat_arg], shell=True)
+        with open(main_text_file, 'a') as append:
+            with open(out_file) as source:
+                shutil.copyfileobj(source, append)
         os.remove(out_file)
 
     def img_to_text(self):
@@ -124,6 +125,9 @@ class PDFTextExtraction(TextExtraction):
             doc_process = subprocess.Popen(
                 args=args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             doc_process.communicate()
+            if doc_process.returncode:
+                raise subprocess.CalledProcessError(doc_process.returncode,
+                                                    args)
             self.cat_and_clean(out_file, main_text_file)
 
         logging.info("%s converted to text from image", self.root + '.png')
@@ -141,6 +145,8 @@ class PDFTextExtraction(TextExtraction):
         process = subprocess.Popen(
             args=args, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
         process.communicate()
+        if process.returncode:
+            raise subprocess.CalledProcessError(process.returncode, args)
         logging.info("%s converted to png images", self.doc_path)
         return export_path
 
@@ -156,7 +162,7 @@ class PDFTextExtraction(TextExtraction):
         if not self.has_text():
             needs_ocr = True
         else:
-            doc_text = self.doc_to_text().stdout.read().decode('utf-8')
+            doc_text = self.doc_to_text().decode('utf-8')
             # Determine if extraction suceeded
             if self.meets_len_threshold(doc_text):
                 self.save(doc_text, ext='.txt')

@@ -26,15 +26,13 @@ Starting Tika Servers
 In Python script
 ```python
 from textextraction.extractors import text_extractor
-textextractor(doc_path=doc_path, force_convert=False)
+text_extractor(doc_path=doc_path, force_convert=False)
 ```
 
 ##### Tests
 In order to run tests:
 1. All requirements must be installed
 2. Both Tika servers need to be running
-3. An env variable must be set to indicate that the system is ready
-`export ALL_INSTALLED=True`
 
 Tests are run with nose
 Installation
