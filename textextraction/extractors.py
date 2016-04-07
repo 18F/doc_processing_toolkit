@@ -24,10 +24,12 @@ class TextExtraction:
         self.doc_path = doc_path
         self.root, self.extension = os.path.splitext(doc_path)
         self.tika_port = tika_port
-        self.text_arg_str = 'curl -T {0} http://' + host + ':{1}/tika '
-        self.text_arg_str += '-s --header "Accept: text/plain"'
-        self.metadata_arg_str = 'curl -T {0} http://' + host + ':{1}/meta '
-        self.metadata_arg_str += '-s --header "Accept: application/json"'
+        self.text_args = ['curl', '-T', doc_path,
+                          'http://%s:%s/tika' % (host, tika_port),
+                          '-s', '--header', 'Accept: text/plain']
+        self.metadata_args = ['curl', '-T', doc_path,
+                              'http://%s:%s/meta' % (host, tika_port),
+                              '-s', '--header', 'Accept: application/json']
 
     def save(self, document, ext):
         """ Save document to root location """
@@ -40,10 +42,7 @@ class TextExtraction:
     def doc_to_text(self):
         """ Converts a document to text using the Tika server """
 
-        document = subprocess.check_output(
-            args=[self.text_arg_str.format(self.doc_path, self.tika_port)],
-            shell=True
-        )
+        document = subprocess.check_output(self.text_args)
         logging.info("%s converted to text from pdf", self.doc_path)
         return document
 
@@ -52,12 +51,7 @@ class TextExtraction:
         Extracts metadata using Tika into a json file
         """
 
-        metadata = subprocess.check_output(
-            args=[
-                self.metadata_arg_str.format(
-                    self.doc_path, self.tika_port)],
-            shell=True
-        )
+        metadata = subprocess.check_output(self.metadata_args)
         self.save(metadata.decode('utf-8'), ext='_metadata.json')
 
     def extract(self):
