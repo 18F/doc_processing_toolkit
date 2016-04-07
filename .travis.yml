@@ -2,11 +2,15 @@ language: python
 python:
   - "3.4"
 env:
-  - BOTO_CONFIG=/tmp/nowhere
+  - BOTO_CONFIG=/tmp/nowhere TIKA_VERSION=1.12
 before_install:
-    sudo apt-get install poppler-utils tesseract-ocr
+  - sudo apt-get install poppler-utils tesseract-ocr
+  - wget "http://apache.osuosl.org/tika/tika-server-$TIKA_VERSION.jar"
 install:
   - pip install nose
   - pip install moto
+before_script:
+  - java -jar tika-server-$TIKA_VERSION.jar --port=9998 >/dev/null 2>/dev/null &
+  - sleep 15  # Wait for Apache Tika server to start up before running tests
 script:
   - nosetests
