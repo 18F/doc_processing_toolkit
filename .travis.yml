@@ -8,6 +8,5 @@ before_install:
 install:
   - pip install nose
   - pip install moto
-  - pip install coveralls
 script:
-  - nosetests --with-coverage
+  - nosetests
