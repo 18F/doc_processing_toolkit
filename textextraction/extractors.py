@@ -97,12 +97,19 @@ class PDFTextExtraction(TextExtraction):
         automatically returns True.
         """
 
+        args = ['pdffonts', self.doc_path]
         pdffonts_output = subprocess.Popen(
-            ['pdffonts', self.doc_path],
+            args,
             stdout=subprocess.PIPE,
         )
+        result = None
         if pdffonts_output.communicate()[0].decode("utf-8").count("\n") > 2:
-            return True
+            result = True
+        retcode = pdffonts_output.returncode
+        if retcode:
+            raise subprocess.CalledProcessError(retcode, args)
+        if result:
+            return result
 
     def cat_and_clean(self, out_file, main_text_file):
         """ Concatenates file to main text file and removes individual file """
