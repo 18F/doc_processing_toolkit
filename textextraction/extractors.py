@@ -149,6 +149,8 @@ class PDFTextExtraction(TextExtraction):
         process = subprocess.Popen(
             args=args, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
         process.communicate()
+        if process.returncode:
+            raise subprocess.CalledProcessError(process.returncode, args)
         logging.info("%s converted to png images", self.doc_path)
         return export_path
 
