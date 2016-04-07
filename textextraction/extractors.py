@@ -129,6 +129,9 @@ class PDFTextExtraction(TextExtraction):
             doc_process = subprocess.Popen(
                 args=args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             doc_process.communicate()
+            if doc_process.returncode:
+                raise subprocess.CalledProcessError(doc_process.returncode,
+                                                    args)
             self.cat_and_clean(out_file, main_text_file)
 
         logging.info("%s converted to text from image", self.root + '.png')
