@@ -40,9 +40,8 @@ class TextExtraction:
     def doc_to_text(self):
         """ Converts a document to text using the Tika server """
 
-        document = subprocess.Popen(
+        document = subprocess.check_output(
             args=[self.text_arg_str.format(self.doc_path, self.tika_port)],
-            stdout=subprocess.PIPE,
             shell=True
         )
         logging.info("%s converted to text from pdf", self.doc_path)
@@ -53,14 +52,13 @@ class TextExtraction:
         Extracts metadata using Tika into a json file
         """
 
-        metadata = subprocess.Popen(
+        metadata = subprocess.check_output(
             args=[
                 self.metadata_arg_str.format(
                     self.doc_path, self.tika_port)],
-            stdout=subprocess.PIPE,
             shell=True
         )
-        self.save(metadata.stdout.read().decode('utf-8'), ext='_metadata.json')
+        self.save(metadata.decode('utf-8'), ext='_metadata.json')
 
     def extract(self):
         """
@@ -69,7 +67,7 @@ class TextExtraction:
         check if extraction produces text.
         """
         self.extract_metadata()
-        self.save(self.doc_to_text().stdout.read().decode('utf-8'), ext='.txt')
+        self.save(self.doc_to_text().decode('utf-8'), ext='.txt')
 
 
 class PDFTextExtraction(TextExtraction):
@@ -156,7 +154,7 @@ class PDFTextExtraction(TextExtraction):
         if not self.has_text():
             needs_ocr = True
         else:
-            doc_text = self.doc_to_text().stdout.read().decode('utf-8')
+            doc_text = self.doc_to_text().decode('utf-8')
             # Determine if extraction suceeded
             if self.meets_len_threshold(doc_text):
                 self.save(doc_text, ext='.txt')
