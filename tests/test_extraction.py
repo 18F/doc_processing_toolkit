@@ -62,12 +62,12 @@ class TestTextExtraction(TestCase):
             doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_text.pdf'))
         doc = extractor.doc_to_text()
         self.assertTrue(
-            'Cupcake ipsum dolor sit' in doc.stdout.read().decode('utf-8'))
+            'Cupcake ipsum dolor sit' in doc.decode('utf-8'))
 
         extractor = TextExtraction(
             doc_path=os.path.join(LOCAL_PATH, 'fixtures/record_no_text.pdf'))
         doc = extractor.doc_to_text()
-        self.assertEqual(doc.stdout.read().decode('utf-8').strip('\n'), '')
+        self.assertEqual(doc.decode('utf-8').strip('\n'), '')
 
     def test_extract(self):
         """
