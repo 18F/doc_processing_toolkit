@@ -12,8 +12,7 @@ addons:
 before_install:
   - wget "http://apache.osuosl.org/tika/tika-server-$TIKA_VERSION.jar"
 install:
-  - pip install nose
-  - pip install moto
+  - pip install -r requirements.txt -r test-requirements.txt
 before_script:
   - java -jar tika-server-$TIKA_VERSION.jar --port=9998 >/dev/null 2>/dev/null &
   - sleep 15  # Wait for Apache Tika server to start up before running tests
