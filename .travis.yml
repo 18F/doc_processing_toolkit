@@ -1,10 +1,15 @@
 language: python
+sudo: false
 python:
   - "3.4"
 env:
   - BOTO_CONFIG=/tmp/nowhere TIKA_VERSION=1.12
+addons:
+  apt:
+    packages:
+      - poppler-utils
+      - tesseract-ocr
 before_install:
-  - sudo apt-get install poppler-utils tesseract-ocr
   - wget "http://apache.osuosl.org/tika/tika-server-$TIKA_VERSION.jar"
 install:
   - pip install nose
